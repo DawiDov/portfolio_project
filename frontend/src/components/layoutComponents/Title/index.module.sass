@@ -1,0 +1,70 @@
+@use 'src/style/variables.module.sass' as style
+
+.title_wrapper
+  margin: 150px 0 0 0 
+  display: flex
+  align-items: center
+  flex-direction: column
+  height: 100vh
+  .title
+    text-transform: uppercase
+    letter-spacing: 25px
+    color: style.$title-font-color
+    font-size: style.$title-font-size
+    font-family: style.$title-font-family
+    margin: 0 0 100px 0
+    transition-duration: 1.5s
+    cursor: default
+    &:hover
+      text-shadow: -2px 0 yellow, 0 1px yellow, 2px 0 yellow, 0 -1px yellow
+  .text
+    outline-color: black
+    text-decoration-color: black
+    text-decoration-line: 1px
+    text-align: center
+    letter-spacing: 5px
+    line-height: 60px
+    padding: 0 0 0 0
+    max-width: 1100px
+    text-align:center
+    color: rgba(256,256,256, .6)
+    font-size: style.$text-font-size
+    font-family: style.$title-font-family 
+
+.title_animate
+  -webkit-animation: title_animate 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both
+  animation: title_animate 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both
+ 
+
+@-webkit-keyframes title_animate
+  0% 
+    letter-spacing: -0.5em
+    -webkit-transform: translateZ(-700px)
+            transform: translateZ(-700px)
+    opacity: 0
+  
+  40% 
+    opacity: 0.6
+  
+  100% 
+    -webkit-transform: translateZ(0)
+            transform: translateZ(0)
+    opacity: 1
+  
+
+@keyframes title_animate 
+  0% 
+    letter-spacing: -0.5em
+    -webkit-transform: translateZ(-700px)
+            transform: translateZ(-700px)
+    opacity: 0
+  
+  40% 
+    opacity: 0.6
+  
+  100% 
+    -webkit-transform: translateZ(0)
+            transform: translateZ(0)
+    opacity: 1
+
+ 
