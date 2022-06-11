@@ -1,7 +1,8 @@
 import React from 'react' 
+import Header from '../Header'
 
 const Layout = () => (
-  <div>layout</div>
+  <Header/>
 )
 
 export default Layout

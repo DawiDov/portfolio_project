@@ -1,0 +1,31 @@
+@use '../../../style/variables.module.sass' as style
+
+.menu
+  margin: 10px 0 0 0 
+  font-size: 40px
+  ul
+    display: flex
+    justify-content: center 
+    li
+      text-transform: uppercase
+      letter-spacing: 3px
+      margin: 0 20px 0 20px 
+      display: inline
+      font-size: 3rem
+      a
+        font-family: style.$header-menu-font-family
+        font-size: style.$header-menu-font-size
+        text-decoration: none
+        color: rgba(256,256,256, .4)
+        outline-color: black
+        text-decoration-color: black
+        text-decoration-line: 1px
+
+        &:focus,
+        &:hover
+          color: white
+
+  .title
+    display: flex
+    justify-content: center
+    
