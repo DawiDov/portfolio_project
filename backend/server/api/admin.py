@@ -1,16 +1,22 @@
 from django.contrib import admin
-from .models import Candidate, Skills, Contacts, Education, Experience
+from .models import Skills, Contacts, Education, Experience, CandidateInfo
 
 # Register your models here.
 
 
+class AdminCandidateInfo(admin.ModelAdmin):
+    list_display = (
+        'full_name',
+    )
+
+
 class AdminSkills(admin.ModelAdmin):
-    list_display = ('skill_name', 'skill_description')
+    list_display = ('skill_name', 'skill_icon')
 
 
 class AdminContacts(admin.ModelAdmin):
     list_display = ('email', 'phone_number',
-                    'git_hub', 'git_flic', 'linkedin')
+                    'git_hub', 'git_flic', 'vk')
 
 
 class AdminEducation(admin.ModelAdmin):
@@ -21,11 +27,8 @@ class AdminExperience(admin.ModelAdmin):
     list_display = ('exp_type', 'exp_description')
 
 
+admin.site.register(CandidateInfo, AdminCandidateInfo)
 admin.site.register(Experience, AdminExperience)
 admin.site.register(Education, AdminEducation)
-admin.site.register(Candidate)
 admin.site.register(Contacts, AdminContacts)
 admin.site.register(Skills, AdminSkills)
-# admin.site.register(Contacts)
-# admin.site.register(Education)
-# admin.site.register(Experience)

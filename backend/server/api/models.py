@@ -4,36 +4,33 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class Candidate(models.Model):
-    first_name = models.CharField(
-        max_length=50,
-        verbose_name='имя',
-        default='Дамир')
-    last_name = models.CharField(
-        max_length=50,
-        verbose_name='фамалия',
-        default='Ахмадуллин')
+class CandidateInfo(models.Model):
+    full_name = models.CharField(
+        max_length=150,
+        verbose_name='полное имя',
+        null=True,
+    )
+    skills = models.ManyToManyField('Skills')
+    contacts = models.OneToOneField('Contacts', on_delete=models.PROTECT)
+    education = models.ManyToManyField('Education')
+    experience = models.ManyToManyField('Experience')
 
     def __str__(self):
-        return self.first_name
+        return self.full_name
 
     class Meta:
-        verbose_name = 'кандидат'
-        verbose_name_plural = 'кандидаты'
+        verbose_name = 'информация о кандидате'
+        verbose_name_plural = 'информация о кандидате'
 
 
 class Skills(models.Model):
-    canditate = models.ManyToManyField(
-        Candidate,
-        null=True,
-    )
     skill_name = models.CharField(
         max_length=256,
         verbose_name='умения и навыки',
-        default='Python'
+        null=True,
     )
-    skill_description = models.TextField(
-        verbose_name='описание умения',
+    skill_icon = models.TextField(
+        verbose_name='ссылка на картинку',
         null=True
     )
 
@@ -46,10 +43,6 @@ class Skills(models.Model):
 
 
 class Contacts(models.Model):
-    candidate = models.OneToOneField(
-        Candidate,
-        on_delete=models.CASCADE
-    )
     git_hub = models.CharField(
         max_length=256,
         verbose_name='github'
@@ -58,9 +51,9 @@ class Contacts(models.Model):
         max_length=256,
         verbose_name='gitflic'
     )
-    linkedin = models.CharField(
+    vk = models.CharField(
         max_length=256,
-        verbose_name='linkedIn'
+        verbose_name='vk'
     )
     email = models.EmailField(
         max_length=100,
@@ -81,8 +74,12 @@ class Contacts(models.Model):
 
 
 class Education(models.Model):
-    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
-    edu_type = models.CharField(max_length=256, default='университет')
+    edu_type = models.CharField(
+        max_length=256,
+        default='университет',
+        verbose_name='тип образования'
+    )
+
     edu_description = models.TextField(verbose_name='описание образования')
 
     def __str__(self):
@@ -94,8 +91,11 @@ class Education(models.Model):
 
 
 class Experience(models.Model):
-    candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
-    exp_type = models.CharField(max_length=200, default='LMARKT')
+    exp_type = models.CharField(
+        max_length=200,
+        default='LMARKT',
+        verbose_name='название опыта'
+    )
     exp_description = models.TextField(verbose_name='описание опыта работы')
 
     def __str__(self):
