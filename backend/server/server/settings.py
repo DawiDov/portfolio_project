@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     #
     "rest_framework",
     "corsheaders",
-
+    #
+    "api.apps.ApiConfig"
 ]
 
 DEFAULT_RENDERER_CLASSES = ("rest_framework.renderers.JSONRenderer",)
