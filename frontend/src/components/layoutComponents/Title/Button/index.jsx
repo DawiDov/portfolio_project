@@ -1,4 +1,5 @@
 import React from 'react' 
+
 import style from './index.module.sass'
 
 const Button = () => (
@@ -8,5 +9,6 @@ const Button = () => (
     </div>
   </a>
 )
+
 
 export default Button
