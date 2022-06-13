@@ -20,7 +20,7 @@ const Home = () => {
   console.log(artur)
   console.log(damir)
   return (
-    <div className={style.home}>GHBDTN</div>
+    <div className={style.home}>{}</div>
   )
 }
 
