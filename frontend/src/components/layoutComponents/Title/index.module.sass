@@ -1,10 +1,11 @@
 @use 'src/style/variables.module.sass' as style
 
 .title_wrapper
-  margin: 150px 0 0 0 
+  margin: 150px 0 0 0
   display: flex
   align-items: center
   flex-direction: column
+
   .title
     text-transform: uppercase
     letter-spacing: 25px
@@ -14,6 +15,7 @@
     margin: 0 20px 80px 20px
     transition-duration: 1.5s
     cursor: default
+
   .text
     outline-color: black
     text-decoration-color: black
@@ -21,23 +23,22 @@
     text-align: center
     letter-spacing: 5px
     line-height: 60px
-    text-align:center
+    text-align: center
     color: rgba(256,256,256, .6)
     font-size: style.$text-font-size
     font-family: style.$title-font-family
 
-
-  @-webkit-keyframes pulsate 
+  @-webkit-keyframes pulsate
     50%
-      color: #fff 
-      text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff 
+    color: #fff
+    text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff
 
-  @keyframes pulsate 
+  @keyframes pulsate
     50%
-      color: #fff 
-      text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff 
+      color: #fff
+      text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff
 
-  .title 
+  .title
     color: rgb(245,245,245)
     text-shadow: 0 -1px rgba(0,0,0,.1)
     -webkit-animation: pulsate 1.2s linear infinite

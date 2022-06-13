@@ -1,27 +1,28 @@
 import axios from 'axios'
+
 import {
-  SET_ARTUR_DATA,
-  SET_DAMIR_DATA,
+  SET_CANDIDATE_DATA,
 } from 'components/service/constants'
-import { toastOnError } from 'utils/Utils'
+import toastOnError from 'utils/Utils'
 
-const setArturDataAction = (data) => (
-  {type: SET_ARTUR_DATA, payload: data }
-)
 
-const setDamirDataAction = (data) => (
-  {type: SET_DAMIR_DATA, payload: data }
-)
+const setCandidate = (data) => ({
+  type: SET_CANDIDATE_DATA, 
+  payload: data,
+})
 
-const getData = () => (dispatch) => {
+const getData = (candidateName) => (dispatch) => {
   
-  const link = 'api/v1/candidate/'
-  
-  
+  axios.defaults.baseURL = `${window.location.origin}/`
+
+  const link = `http://localhost/api/v1${candidateName}`
+
+  console.log(link)
   axios
-    .get(link).then(resp => {
-      dispatch(setDamirDataAction(resp.data[0]))
-      dispatch(setArturDataAction(resp.data[1]))
+    .get(link)
+    .then(resp => {
+      console.log(resp.data[0].full_name)
+      dispatch(setCandidate(resp.data[0]))
     })
     .catch(error => toastOnError(error))
 }  

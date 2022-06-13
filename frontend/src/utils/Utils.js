@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 
-export const toastOnError = (error) => {
+const toastOnError = (error) => {
   if (error.response) {
     // known error
     toast.error(JSON.stringify(error.response.data))
@@ -10,3 +10,5 @@ export const toastOnError = (error) => {
     toast.error(JSON.stringify(error))
   }
 }
+
+export default toastOnError

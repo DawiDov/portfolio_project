@@ -1,25 +1,41 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { Box, Paper, Container } from '@mui/material'
+import { useLocation } from 'react-router-dom'
 
 import Contact from 'components/common/Contact'
+import { useDispatch, useSelector } from 'react-redux'
+import getData from 'components/service/actions'
 
-const Home = ({candidate}) => {
-  // eslint-disable-next-line
+const Home = () => {
+
+  const location = useLocation()
+  const dispatch = useDispatch()
+
+  const { 
+    fullName,
+    contacts,
+    education,
+    experience,
+    skills,
+  } = useSelector(state => ({
+    fullName: state.persData.fullName,
+    contacts: state.persData.contacts,
+    education: state.persData.education,
+    experience: state.persData.experience,
+    skills: state.persData.skills,
+  }))
+  const candidateName = location.pathname
+
   useEffect(() => {
-    if (!candidate) {
-      // eslint-disable-next-line
-      return alert('no user')
-    }
-  })
-  console.log(candidate)
+    dispatch(getData(candidateName))
+  }, [])
+
   return (
     <Container>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'row',
-          alignContent: 'center',
           minHeight: '300px',
           backgroundColor: 'beige',
         }}
@@ -33,25 +49,17 @@ const Home = ({candidate}) => {
             margin: '50px auto',
           }}
         >
-          {candidate.full_name}
+          {fullName}
         </Paper>
         <Box>
           <Contact
             title='гитхаб'
-            value={candidate.contacts.git_hub}
+            value={contacts.git_hub}
             icon={null} />
         </Box>
       </Box>
     </Container> 
   )
-}
-
-Home.propTypes = {
-  candidate: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.string
-    )
-  ).isRequired,
 }
 
 export default Home

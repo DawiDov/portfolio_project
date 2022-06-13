@@ -1,26 +1,43 @@
 import {
-  SET_ARTUR_DATA,
-  SET_DAMIR_DATA,
+  SET_CANDIDATE_DATA,
 } from 'components/service/constants'
 
 const initialState = {
-  damir: {},
-  artur: {},
+  fullName: '',
+  contacts: {
+    email: '',
+    git_flic: '',
+    git_hub: '',
+    phone_number: '',
+    vk: '',
+  },
+  education: [{
+    edu_type: '',
+    edu_description: '',
+  }],
+  experience: [{
+    exp_type: '',
+    exp_description: '',
+  }],
+  skills: [{
+    skill_name: '' ,
+    skill_icon: '',
+  }],
 }
+
 const defaultAction = {}
 
 const persDataReducer = (state=initialState, action=defaultAction) => {
   switch (action.type) {
-  case SET_ARTUR_DATA:
+  case SET_CANDIDATE_DATA:
     return {
       ...state,
-      artur: action.payload
-    }  
-  case SET_DAMIR_DATA:
-    return {
-      ...state,
-      damir: action.payload
-    }  
+      fullName: action.payload.full_name,
+      contacts: action.payload.contacts,
+      education: action.payload.education,
+      experience: action.payload.experience,
+      skills: action.payload.skills,
+    }
   default:
     return {
       ...state
