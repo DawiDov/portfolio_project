@@ -2,17 +2,16 @@
 
 .menu
   margin: 10px 0 0 0 
-  font-size: 40px
   ul
     display: flex
     justify-content: center 
     li
       text-transform: uppercase
-      letter-spacing: 3px
       margin: 0 20px 0 20px 
       display: inline
       font-size: 3rem
       a
+        letter-spacing: 3px
         font-family: style.$header-menu-font-family
         font-size: style.$header-menu-font-size
         text-decoration: none
@@ -28,4 +27,12 @@
   .title
     display: flex
     justify-content: center
+
+@media (max-width: 680px)
+  .menu ul 
+    li
+      margin: 0 8px 0 8px 
+      a
+        font-size: style.$header-menu-font-size / 2
+        letter-spacing: 2px
     
