@@ -1,27 +1,22 @@
-import getData from 'components/service/actions'
-import { React, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import style from './index.module.sass'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const Home = () => {
-  const dispatch = useDispatch()
-  const {
-    damir,
-    artur,
-  } = useSelector(state => ({
-    damir: state.persData.damir,
-    artur: state.persData.artur,
-  }) 
-  )
-  useEffect(() => {
-    dispatch(getData())
-  }, []
-  )
-  console.log(artur)
-  console.log(damir)
-  return (
-    <div className={style.home}>GHBDTN</div>
-  )
+import { Box, Paper } from '@mui/material'
+
+const Home = ({candidate}) => (
+  <Box>
+    <Paper elevation={3} >
+      {candidate.full_name}
+    </Paper>
+  </Box>
+)
+
+Home.propTypes = {
+  candidate: PropTypes.objectOf(
+    PropTypes.objectOf(
+      PropTypes.string
+    )
+  ).isRequired,
 }
 
 export default Home
