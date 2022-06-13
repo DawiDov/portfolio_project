@@ -1,6 +1,5 @@
 import Content from 'components/common/Content'
 import React from 'react'
-
 import style from './index.module.sass'
 
 const Main = () => (
