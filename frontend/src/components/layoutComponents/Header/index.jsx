@@ -1,10 +1,8 @@
 import React from 'react' 
-import ParticlesBg from 'particles-bg'
 import style from './index.module.sass'
 
 const Header = () => (
   <header className={style.header}>
-    <ParticlesBg type="lines" bg/>
     <nav className={style.menu}>
       <ul>
         <li>
