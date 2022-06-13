@@ -3,8 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Layout from 'components/layoutComponents/Layout'
 import PageNotFound from 'components/pages/PageNotFound'
-// import Main from 'components/pages/Main'
-import Home from 'components/common/Home'
+import Home from 'components/pages/Home'
 
 const App = () => (
   <Routes>
