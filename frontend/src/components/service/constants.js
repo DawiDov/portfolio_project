@@ -1,0 +1,2 @@
+export const SET_ARTUR_DATA = 'SET_ARTUR_DATA' 
+export const SET_DAMIR_DATA = 'SET_DAMIR_DATA' 
