@@ -6,6 +6,12 @@ from .serializer import CandidateInfoSerializer
 # Create your views here.
 
 
-class BasicAPIView(viewsets.ModelViewSet):
-    queryset = CandidateInfo.objects.all()
+class damirAPIView(viewsets.ModelViewSet):
+    queryset = CandidateInfo.objects.filter(
+        full_name__contains='Дамир')
+    serializer_class = CandidateInfoSerializer
+
+
+class arturAPIView(viewsets.ModelViewSet):
+    queryset = CandidateInfo.objects.filter(full_name__contains='Артур')
     serializer_class = CandidateInfoSerializer
