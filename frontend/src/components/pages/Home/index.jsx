@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Box, Paper } from '@mui/material'
 import { useLocation } from 'react-router-dom'
 
-import ContentContainer from 'components/common/Content'
+import ContentContainer from 'components/common/ContentContainer'
 import Contact from 'components/common/Contact'
 import { useDispatch, useSelector } from 'react-redux'
 import getData from 'components/service/actions'
