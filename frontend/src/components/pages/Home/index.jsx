@@ -1,26 +1,64 @@
-import getData from 'components/service/actions'
-import { React, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { Box, Paper, Container } from '@mui/material'
+import { useLocation } from 'react-router-dom'
+
+import Contact from 'components/common/Contact'
 import { useDispatch, useSelector } from 'react-redux'
-import style from './index.module.sass'
+import getData from 'components/service/actions'
 
 const Home = () => {
+
+  const location = useLocation()
   const dispatch = useDispatch()
-  const {
-    damir,
-    artur,
+
+  const { 
+    fullName,
+    contacts,
+    education,
+    experience,
+    skills,
   } = useSelector(state => ({
-    damir: state.persData.damir,
-    artur: state.persData.artur,
-  }) 
-  )
+    fullName: state.persData.fullName,
+    contacts: state.persData.contacts,
+    education: state.persData.education,
+    experience: state.persData.experience,
+    skills: state.persData.skills,
+  }))
+  const candidateName = location.pathname
+
   useEffect(() => {
-    dispatch(getData())
-  }, []
-  )
-  console.log(artur)
-  console.log(damir)
+    dispatch(getData(candidateName))
+  }, [])
+
   return (
-    <div className={style.home}>{}</div>
+    <Container>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          minHeight: '300px',
+          backgroundColor: 'beige',
+        }}
+      >
+        <Paper 
+          elevation={3} 
+          sx={{
+            padding: '3em 5em',
+            height: '1em',
+            textAlign: 'center',
+            margin: '50px auto',
+          }}
+        >
+          {fullName}
+        </Paper>
+        <Box>
+          <Contact
+            title='гитхаб'
+            value={contacts.git_hub}
+            icon={null} />
+        </Box>
+      </Box>
+    </Container> 
   )
 }
 
