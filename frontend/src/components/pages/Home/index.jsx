@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { Box, Paper, Container } from '@mui/material'
+import { Box, Paper } from '@mui/material'
 import { useLocation } from 'react-router-dom'
 
+import ContentContainer from 'components/common/Content'
 import Contact from 'components/common/Contact'
 import { useDispatch, useSelector } from 'react-redux'
 import getData from 'components/service/actions'
@@ -31,9 +32,10 @@ const Home = () => {
   }, [])
 
   return (
-    <Container>
+    <ContentContainer sx={{backgroundColor: 'red'}}>
       <Box
         sx={{
+          alignSelf: 'center',
           display: 'flex',
           flexDirection: 'row',
           minHeight: '300px',
@@ -58,7 +60,7 @@ const Home = () => {
             icon={null} />
         </Box>
       </Box>
-    </Container> 
+    </ContentContainer> 
   )
 }
 
