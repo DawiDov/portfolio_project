@@ -4,13 +4,14 @@ import { Container } from '@mui/system'
 
 const ContentContainer = ({children, sx }) => {
   const containerTheme = {
-    width: '100vw',
     minHeight: '400px',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
   }
   return (
     <Container 
+      maxWidth='100vh'
       sx={{
         ...containerTheme,
         ...sx,
