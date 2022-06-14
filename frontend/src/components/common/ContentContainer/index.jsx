@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Container } from '@mui/system'
 
-const ContentContainer = ({children, sx }) => {
+const ContentContainer = ({children, background, sx }) => {
   const containerTheme = {
     minHeight: '400px',
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   }
@@ -15,6 +16,7 @@ const ContentContainer = ({children, sx }) => {
       sx={{
         ...containerTheme,
         ...sx,
+        backgroundColor: background,
       }}
     >
       {children}
@@ -23,12 +25,17 @@ const ContentContainer = ({children, sx }) => {
 }
 
 ContentContainer.propTypes = {
-  children: PropTypes.objectOf(PropTypes.node).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
   sx: PropTypes.objectOf(PropTypes.string),
+  background: PropTypes.string,
 }
 
 ContentContainer.defaultProps = {
   sx: null,
+  background: 'white',
 }
 
 export default ContentContainer

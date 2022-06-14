@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { Box, Paper } from '@mui/material'
 import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import ContentContainer from 'components/common/ContentContainer'
-import Contact from 'components/common/Contact'
-import { useDispatch, useSelector } from 'react-redux'
 import getData from 'components/service/actions'
+import Content from 'components/common/Content'
+import TextBox from 'components/common/TextBlock'
 
 const Home = () => {
 
@@ -32,35 +32,47 @@ const Home = () => {
   }, [])
 
   return (
-    <ContentContainer sx={{backgroundColor: 'red'}}>
-      <Box
-        sx={{
-          alignSelf: 'center',
-          display: 'flex',
-          flexDirection: 'row',
-          minHeight: '300px',
-          backgroundColor: 'beige',
-        }}
-      >
-        <Paper 
-          elevation={3} 
-          sx={{
-            padding: '3em 5em',
-            height: '1em',
-            textAlign: 'center',
-            margin: '50px auto',
-          }}
+    <>
+      <ContentContainer >
+        <Content
+          sectionName='образование'
         >
-          {fullName}
-        </Paper>
-        <Box>
-          <Contact
-            title='гитхаб'
-            value={contacts.git_hub}
-            icon={null} />
-        </Box>
-      </Box>
-    </ContentContainer> 
+          {education.map(edu => 
+            <TextBox
+              key={edu.edu_type}
+              title={edu.edu_type}
+              paragraph={edu.edu_description}
+            />
+          )}
+        </Content>
+      </ContentContainer> 
+      <ContentContainer background='#f5f5f5' >
+        <Content
+          sectionName='Опыт'
+        >
+          {experience.map(exp => 
+            <TextBox
+              key={exp.exp_type}
+              title={exp.exp_type}
+              paragraph={exp.exp_description}
+            />
+          )}
+        </Content>
+      </ContentContainer> 
+      <ContentContainer >
+        <Content
+          sectionName='Умения'
+        >
+          {skills.map(skill => 
+            <TextBox
+              key={skill.skill_name}
+              title={skill.skill_name}
+              paragraph={skill.skill_icon}
+            />
+          )}
+        </Content>
+      </ContentContainer> 
+    </> 
   )
 }
 
