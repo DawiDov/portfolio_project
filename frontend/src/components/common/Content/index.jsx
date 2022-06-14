@@ -1,30 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import { Container } from '@mui/system'
 
-import style from './index.module.sass'
+const ContentContainer = ({children, sx }) => {
+  const containerTheme = {
+    width: '100vw',
+    minHeight: '400px',
+    display: 'flex',
+    justifyContent: 'center',
+  }
+  return (
+    <Container 
+      sx={{
+        ...containerTheme,
+        ...sx,
+      }}
+    >
+      {children}
+    </Container>
+  )
+}
 
-const Content = ({children, sx, modificator}) => (
-  <section 
-    className={
-      classNames(style.container, modificator)
-    } 
-    style={{...sx}}
-  >
-    {children}
-  </section>
-)
-
-Content.propTypes = {
-  children: PropTypes.objectOf(PropTypes.node),
+ContentContainer.propTypes = {
+  children: PropTypes.objectOf(PropTypes.node).isRequired,
   sx: PropTypes.objectOf(PropTypes.string),
-  modificator: PropTypes.string,
 }
 
-Content.defaultProps = {
-  children: null,
+ContentContainer.defaultProps = {
   sx: null,
-  modificator: null,
 }
 
-export default Content
+export default ContentContainer
