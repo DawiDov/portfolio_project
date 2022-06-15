@@ -6,6 +6,7 @@ import ContentContainer from 'components/common/ContentContainer'
 import getData from 'components/service/actions'
 import Content from 'components/common/Content'
 import TextBox from 'components/common/TextBlock'
+import Divider from 'components/common/Divider'
 
 const Home = () => {
 
@@ -25,12 +26,12 @@ const Home = () => {
     experience: state.persData.experience,
     skills: state.persData.skills,
   }))
+  
   const candidateName = location.pathname
 
   useEffect(() => {
     dispatch(getData(candidateName))
   }, [])
-  console.log(fullName)
   return (
     <>
       <ContentContainer >
@@ -45,8 +46,9 @@ const Home = () => {
             />
           )}
         </Content>
-      </ContentContainer> 
-      <ContentContainer background='#f5f5f5' >
+      </ContentContainer>
+      <Divider /> 
+      <ContentContainer >
         <Content
           sectionName='Опыт'
         >
@@ -59,6 +61,7 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer> 
+      <Divider /> 
       <ContentContainer >
         <Content
           sectionName='Умения'
