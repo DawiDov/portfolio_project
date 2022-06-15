@@ -30,7 +30,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(getData(candidateName))
   }, [])
-
+  console.log(fullName)
   return (
     <>
       <ContentContainer >
