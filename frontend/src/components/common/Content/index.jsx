@@ -1,52 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Box } from '@mui/system'
-import { Typography } from '@mui/material'
+import classNames from 'classnames'
 
-const Content = ({children, sx, sectionName }) => {
+import style from './index.module.sass'
 
-  const contentTheme = {
-    minHeight: '400px',
-    padding: '40px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+const Content = ({children, className, sx, sectionName }) => (
 
-  const sectionNameTheme = {
-    textTransform: 'uppercase',
-    fontSize: '14pt',
-    alignSelf: 'start',
-    fontWeight: '700',
-    letterSpacing: '3px',
-    textDecoration: 'underline blue 4px',
-    marginRight: '5em',
-  }
-
-  const childrenContainerTheme = {
-    display: 'flex',
-    flexDirection: 'column',
-  }
-
-  return (
-    <Container 
-      sx={
-        {...contentTheme, ...sx,}
-      }>
-      <Box sx={{alignItems: 'start'}}>
-        <Typography variant='h1' sx={sectionNameTheme}>
-          {sectionName}
-        </Typography>
-      </Box>
-      <Box sx={childrenContainerTheme}>
-        {children}
-      </Box>
-    </Container>
-  )
-}
+  <section 
+    className={
+      classNames(style.container, className)
+    }
+    style={{...sx}}>
+    <div 
+      className={style.titleBox}>
+      <h1 className={style.title}>
+        {sectionName}
+      </h1>
+    </div>
+    <div className={style.children}>
+      {children}
+    </div>
+  </section>
+)
 
 Content.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
   sx: PropTypes.objectOf(PropTypes.string),
   sectionName: PropTypes.string.isRequired,
@@ -54,6 +32,7 @@ Content.propTypes = {
 
 Content.defaultProps = {
   sx: null,
+  className: null,
 }
 
 export default Content
