@@ -4,16 +4,19 @@ import classNames from 'classnames'
 
 import style from './index.module.sass'
 
-const Content = ({children, className, sx, sectionName }) => (
+const Content = ({ children, avatar, className, sx, sectionName }) => (
 
-  <section 
+  <section
     className={
       classNames(style.container, className)
     }
-    style={{...sx}}>
-    <div 
+    style={{ ...sx }}>
+    <div
       className={style.titleBox}>
-      <h1 className={style.title}>
+      <div className={avatar ? style.avatar : null}>
+        {avatar}
+      </div>
+      <h1 className={sectionName ? style.title : null}>
         {sectionName}
       </h1>
     </div>
@@ -27,12 +30,15 @@ Content.propTypes = {
   className: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
   sx: PropTypes.objectOf(PropTypes.string),
-  sectionName: PropTypes.string.isRequired,
+  sectionName: PropTypes.string,
+  avatar: PropTypes.node,
 }
 
 Content.defaultProps = {
   sx: null,
   className: null,
+  sectionName: null,
+  avatar: null,
 }
 
 export default Content

@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Skills, Contacts, Education, Experience, CandidateInfo
+
+from .models import CandidateInfo, Contacts, Education, Experience, Skills
+
 
 # Register your models here.
 

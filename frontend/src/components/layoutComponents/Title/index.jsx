@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React from 'react' 
+import React from 'react'
 
 import style from './index.module.sass'
 
@@ -8,7 +8,7 @@ const Title = () => (
     <div className={classNames(
       style.title,
       style.title_animate,
-      style.title_border_animate,)}>
+      style.title_border_animate)}>
       <p>Проект-Резюме</p>
     </div>
     <div className={style.text}>

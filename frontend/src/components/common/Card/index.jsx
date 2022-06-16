@@ -4,15 +4,21 @@ import classNames from 'classnames'
 
 import style from 'index.module.sass'
 
-const Card = ({title, value, icon, className}) => (
+const Card = ({ title, value, icon, className }) => (
 
   <div
     className={
       classNames(style.contact, className)
     }>
-    {title}
-    {value}
-    {icon}
+    <div>
+      {title}
+    </div>
+    <div>
+      {value}
+    </div>
+    <div>
+      {icon}
+    </div>
   </div>
 )
 

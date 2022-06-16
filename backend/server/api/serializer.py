@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Education, Skills, Experience, Contacts, CandidateInfo
+
+from .models import CandidateInfo, Contacts, Education, Experience, Skills
 
 
 class EducationSerializer(serializers.ModelSerializer):
