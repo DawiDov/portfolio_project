@@ -62,8 +62,8 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer> 
-      <Divider /> 
-      <CloudSkills/>
+      <Divider />
+      <CloudSkills skills={skills}/>
     </> 
   )
 }
