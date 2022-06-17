@@ -7,13 +7,15 @@ import getData from 'components/service/actions'
 import Content from 'components/common/Content'
 import TextBox from 'components/common/TextBlock'
 import Divider from 'components/common/Divider'
+import Avatar from 'components/common/Avatar'
+import Card from 'components/common/Card'
 
 const Home = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
 
-  const { 
+  const {
     fullName,
     contacts,
     education,
@@ -26,7 +28,7 @@ const Home = () => {
     experience: state.persData.experience,
     skills: state.persData.skills,
   }))
-  
+
   const candidateName = location.pathname
 
   useEffect(() => {
@@ -34,11 +36,21 @@ const Home = () => {
   }, [])
   return (
     <>
+      <ContentContainer>
+        <Content avatar={<Avatar />} >
+          <Card value={contacts.vk} />
+          <Card value={contacts.git_gub} />
+          <Card value={contacts.git_flic} />
+          <Card value={contacts.phone_number} />
+          <Card value={contacts.email} />
+        </Content>
+      </ContentContainer>
+      <Divider />
       <ContentContainer >
         <Content
           sectionName='образование'
         >
-          {education.map(edu => 
+          {education.map(edu =>
             <TextBox
               key={edu.edu_type}
               title={edu.edu_type}
@@ -47,12 +59,12 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <Divider /> 
+      <Divider />
       <ContentContainer >
         <Content
           sectionName='Опыт'
         >
-          {experience.map(exp => 
+          {experience.map(exp =>
             <TextBox
               key={exp.exp_type}
               title={exp.exp_type}
@@ -60,13 +72,13 @@ const Home = () => {
             />
           )}
         </Content>
-      </ContentContainer> 
-      <Divider /> 
+      </ContentContainer>
+      <Divider />
       <ContentContainer >
         <Content
           sectionName='Умения'
         >
-          {skills.map(skill => 
+          {skills.map(skill =>
             <TextBox
               key={skill.skill_name}
               title={skill.skill_name}
@@ -74,8 +86,8 @@ const Home = () => {
             />
           )}
         </Content>
-      </ContentContainer> 
-    </> 
+      </ContentContainer>
+    </>
   )
 }
 
