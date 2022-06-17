@@ -7,6 +7,7 @@ import getData from 'components/service/actions'
 import Content from 'components/common/Content'
 import TextBox from 'components/common/TextBlock'
 import Divider from 'components/common/Divider'
+import CloudSkills from 'components/common/Cloud'
 
 const Home = () => {
 
@@ -61,20 +62,8 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer> 
-      <Divider /> 
-      <ContentContainer >
-        <Content
-          sectionName='Умения'
-        >
-          {skills.map(skill => 
-            <TextBox
-              key={skill.skill_name}
-              title={skill.skill_name}
-              paragraph={skill.skill_icon}
-            />
-          )}
-        </Content>
-      </ContentContainer> 
+      <Divider />
+      <CloudSkills skills={skills}/>
     </> 
   )
 }

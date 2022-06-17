@@ -14,14 +14,12 @@ const setCandidate = (data) => ({
 const getData = (candidateName) => (dispatch) => {
   
   axios.defaults.baseURL = `${window.location.origin}/`
-
+  
   const link = `http://localhost/api/v1${candidateName}`
-
-  axios
-    .get(link)
-    .then(resp => {
-      dispatch(setCandidate(resp.data[0]))
-    })
+  
+  axios.get(link).then(resp => {
+    dispatch(setCandidate(resp.data[0]))
+  })
     .catch(error => toastOnError(error))
 }  
 
