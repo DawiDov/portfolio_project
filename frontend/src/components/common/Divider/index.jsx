@@ -6,7 +6,7 @@ import style from './index.module.sass'
 
 const Divider = ({ className }) => (
   <div className={
-    classNames(style.divider, className)
+    classNames(className, style.divider)
   } />
 )
 

@@ -1,13 +1,14 @@
+// used packages
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // icons
-import PersonIcon from '@mui/icons-material/Person'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import FacebookIcon from '@mui/icons-material/Facebook'
 
+// personal components
 import ContentContainer from 'components/common/ContentContainer'
 import getData from 'components/service/actions'
 import Content from 'components/common/Content'
@@ -43,9 +44,11 @@ const Home = () => {
   }, [])
   return (
     <>
-      <ContentContainer>
-        <Content avatar={<Avatar />} >
-          <Card value={fullName} icon={<PersonIcon />} />
+      <ContentContainer background='#bec2c6'>
+        <Content
+          sectionName={fullName}
+          childrenSX={{ alignSelf: 'center' }}
+          avatar={<Avatar />} >
           <Card value={contacts.vk} icon={<FacebookIcon />} />
           <Card value={contacts.git_hub} icon={<GitHubIcon />} />
           <Card value={contacts.git_flic} icon={<GitHubIcon />} />
@@ -53,7 +56,6 @@ const Home = () => {
           <Card value={contacts.email} icon={<AlternateEmailIcon />} />
         </Content>
       </ContentContainer>
-      <Divider />
       <ContentContainer >
         <Content
           sectionName='образование'
@@ -67,7 +69,6 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <Divider />
       <ContentContainer >
         <Content
           sectionName='Опыт'
@@ -91,7 +92,7 @@ const Home = () => {
       }}>
         умения
       </h2>
-      <Divider />
+      <Divider sx={{ marginBottom: '10px' }} />
       <CloudSkills skills={skills} />
     </>
   )

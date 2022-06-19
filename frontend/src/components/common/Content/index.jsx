@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import Divider from 'components/common/Divider'
 import style from './index.module.sass'
 
-const Content = ({ children, avatar, className, sx, sectionName }) => (
+const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, sectionName }) => (
 
   <section
     className={
@@ -16,17 +17,25 @@ const Content = ({ children, avatar, className, sx, sectionName }) => (
       <div className={avatar ? style.avatar : null}>
         {avatar}
       </div>
-      <h1 className={sectionName ? style.title : null}>
+      <h1 className={sectionName ? style.title : null}
+        style={{ ...sectionSX }}
+      >
+        <Divider className={sectionName ? null : style.hidden} />
         {sectionName}
+        <Divider className={sectionName ? null : style.hidden} />
       </h1>
     </div>
-    <div className={style.children}>
+    <div
+      className={style.children}
+      style={{ ...childrenSX }}>
       {children}
     </div>
   </section>
 )
 
 Content.propTypes = {
+  sectionSX: PropTypes.objectOf(PropTypes.string),
+  childrenSX: PropTypes.objectOf(PropTypes.string),
   className: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
   sx: PropTypes.objectOf(PropTypes.string),
@@ -35,6 +44,8 @@ Content.propTypes = {
 }
 
 Content.defaultProps = {
+  sectionSX: null,
+  childrenSX: null,
   sx: null,
   className: null,
   sectionName: null,
