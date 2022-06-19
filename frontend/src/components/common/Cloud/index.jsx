@@ -19,7 +19,7 @@ const CloudSkills = ({ skills }) => {
       textTransform: randomWordRegister(),
       fontSize: randomFontSize(20, 100),
     }}
-    key={skill.id}>{skill.skill_name}</div>)
+    key={skill.skill_name}>{skill.skill_name}</div>)
 
   return (
     <section className={style.cloudWrapper}>
@@ -44,7 +44,13 @@ const CloudSkills = ({ skills }) => {
 export default CloudSkills
 
 CloudSkills.propTypes = {
-  skills: PropTypes.objectOf(PropTypes.string),
+  skills: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ])
+    )),
 }
 
 CloudSkills.defaultProps = {
@@ -63,7 +69,5 @@ CloudSkills.defaultProps = {
     'HTML',
     'MUI',
     'Bootstrap',
-
-
   ]
 }

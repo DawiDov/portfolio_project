@@ -2,6 +2,12 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+// icons
+import PersonIcon from '@mui/icons-material/Person'
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import FacebookIcon from '@mui/icons-material/Facebook'
+
 import ContentContainer from 'components/common/ContentContainer'
 import getData from 'components/service/actions'
 import Content from 'components/common/Content'
@@ -39,11 +45,12 @@ const Home = () => {
     <>
       <ContentContainer>
         <Content avatar={<Avatar />} >
-          <Card value={contacts.vk} />
-          <Card value={contacts.git_hub} />
-          <Card value={contacts.git_flic} />
+          <Card value={fullName} icon={<PersonIcon />} />
+          <Card value={contacts.vk} icon={<FacebookIcon />} />
+          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
+          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
           <Card value={contacts.phone_number} />
-          <Card value={contacts.email} />
+          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
         </Content>
       </ContentContainer>
       <Divider />
@@ -75,27 +82,14 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <Divider />
-      <ContentContainer >
-        <Content
-          sectionName='Умения'
-        >
-          {skills.map(skill =>
-            <TextBox
-              key={skill.skill_name}
-              title={skill.skill_name}
-              paragraph={skill.skill_icon}
-            />
-          )}
-        </Content>
-      </ContentContainer>
-      <Divider />
       <h2 style={{
         fontSize: '24px',
         fontWeight: '800',
         margin: '5px auto',
         textAlign: 'center',
+        textTransform: 'uppercase',
       }}>
-        SKILLS
+        умения
       </h2>
       <Divider />
       <CloudSkills skills={skills} />

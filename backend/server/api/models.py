@@ -29,10 +29,6 @@ class Skills(models.Model):
         verbose_name='умения и навыки',
         null=True,
     )
-    skill_icon = models.TextField(
-        verbose_name='ссылка на картинку',
-        null=True
-    )
 
     def __str__(self):
         return self.skill_name

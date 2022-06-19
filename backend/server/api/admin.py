@@ -13,7 +13,7 @@ class AdminCandidateInfo(admin.ModelAdmin):
 
 
 class AdminSkills(admin.ModelAdmin):
-    list_display = ('skill_name', 'skill_icon')
+    list_display = ('skill_name', )
 
 
 class AdminContacts(admin.ModelAdmin):
