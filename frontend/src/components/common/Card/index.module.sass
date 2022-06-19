@@ -1,6 +1,25 @@
 @use 'style/variables.module.sass' as style
 
 .contact
-  padding: 1em 5em
-  border-radius: 8px
-  margin: 20px
+  display: flex
+  flex-direction: row
+  padding: 10px 
+  margin: 10px 10px
+  border-radius: 20px
+  border: solid 1px white
+  box-shadow: 0 0 10px white 
+
+  align-content: center
+  width: 250px
+
+  .icon
+    border-radius: 50%
+
+  .value
+    width: 100%
+    color: style.$primary-dark-color
+    align-content: center
+    text-align: center
+    font-size: 12pt
+    margin: 0 auto
+

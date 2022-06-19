@@ -1,12 +1,21 @@
+// used packages
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+// icons
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import FacebookIcon from '@mui/icons-material/Facebook'
+
+// personal components
 import ContentContainer from 'components/common/ContentContainer'
 import getData from 'components/service/actions'
 import Content from 'components/common/Content'
 import TextBox from 'components/common/TextBlock'
 import Divider from 'components/common/Divider'
+import Avatar from 'components/common/Avatar'
+import Card from 'components/common/Card'
 import CloudSkills from 'components/common/Cloud'
 
 const Home = () => {
@@ -14,7 +23,7 @@ const Home = () => {
   const location = useLocation()
   const dispatch = useDispatch()
 
-  const { 
+  const {
     fullName,
     contacts,
     education,
@@ -27,7 +36,7 @@ const Home = () => {
     experience: state.persData.experience,
     skills: state.persData.skills,
   }))
-  
+
   const candidateName = location.pathname
 
   useEffect(() => {
@@ -35,11 +44,23 @@ const Home = () => {
   }, [])
   return (
     <>
+      <ContentContainer background='#bec2c6'>
+        <Content
+          sectionName={fullName}
+          childrenSX={{ alignSelf: 'center' }}
+          avatar={<Avatar />} >
+          <Card value={contacts.vk} icon={<FacebookIcon />} />
+          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
+          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
+          <Card value={contacts.phone_number} />
+          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+        </Content>
+      </ContentContainer>
       <ContentContainer >
         <Content
           sectionName='образование'
         >
-          {education.map(edu => 
+          {education.map(edu =>
             <TextBox
               key={edu.edu_type}
               title={edu.edu_type}
@@ -48,12 +69,11 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <Divider /> 
       <ContentContainer >
         <Content
           sectionName='Опыт'
         >
-          {experience.map(exp => 
+          {experience.map(exp =>
             <TextBox
               key={exp.exp_type}
               title={exp.exp_type}
@@ -61,10 +81,20 @@ const Home = () => {
             />
           )}
         </Content>
-      </ContentContainer> 
+      </ContentContainer>
       <Divider />
-      <CloudSkills skills={skills}/>
-    </> 
+      <h2 style={{
+        fontSize: '24px',
+        fontWeight: '800',
+        margin: '5px auto',
+        textAlign: 'center',
+        textTransform: 'uppercase',
+      }}>
+        умения
+      </h2>
+      <Divider sx={{ marginBottom: '10px' }} />
+      <CloudSkills skills={skills} />
+    </>
   )
 }
 

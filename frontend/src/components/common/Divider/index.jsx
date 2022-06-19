@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 
 import style from './index.module.sass'
 
-const Divider = ({className}) => (
+const Divider = ({ className }) => (
   <div className={
-    classNames(style.divider, className)
-  }/>
+    classNames(className, style.divider)
+  } />
 )
 
 Divider.propTypes = {
