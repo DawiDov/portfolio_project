@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Skills, Contacts, Education, Experience, CandidateInfo
+
+from .models import CandidateInfo, Contacts, Education, Experience, Skills
+
 
 # Register your models here.
 
@@ -11,7 +13,7 @@ class AdminCandidateInfo(admin.ModelAdmin):
 
 
 class AdminSkills(admin.ModelAdmin):
-    list_display = ('skill_name', 'skill_icon')
+    list_display = ('skill_name', )
 
 
 class AdminContacts(admin.ModelAdmin):
