@@ -89,6 +89,15 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <Divider />
+      <h2 style={{
+        fontSize: '24px',
+        fontWeight: '800',
+        margin: '5px auto',
+        textAlign: 'center',
+      }}>
+        SKILLS
+      </h2>
+      <Divider />
       <CloudSkills skills={skills} />
     </>
   )

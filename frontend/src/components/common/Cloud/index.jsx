@@ -14,17 +14,17 @@ const CloudSkills = ({ skills }) => {
   useInterval(() => {
     setCount(!count)
   }, 4000)
-  const cloud = skills.map((skill) => <div 
+  const cloud = skills.map((skill) => <div
     style={{
       textTransform: randomWordRegister(),
       fontSize: randomFontSize(20, 100),
     }}
     key={skill.id}>{skill.skill_name}</div>)
-  
+
   return (
     <section className={style.cloudWrapper}>
       <div className={style.cloudBorder}>
-        <TagCloud 
+        <TagCloud
           style={{
             fontFamily: 'sans-serif',
             fontWeight: 'bold',
@@ -44,7 +44,7 @@ const CloudSkills = ({ skills }) => {
 export default CloudSkills
 
 CloudSkills.propTypes = {
-  skills: PropTypes.arrayOf(PropTypes.string),
+  skills: PropTypes.objectOf(PropTypes.string),
 }
 
 CloudSkills.defaultProps = {
@@ -64,6 +64,6 @@ CloudSkills.defaultProps = {
     'MUI',
     'Bootstrap',
 
-  
+
   ]
 }
