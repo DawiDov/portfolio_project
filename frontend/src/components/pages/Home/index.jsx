@@ -40,7 +40,7 @@ const Home = () => {
       <ContentContainer>
         <Content avatar={<Avatar />} >
           <Card value={contacts.vk} />
-          <Card value={contacts.git_gub} />
+          <Card value={contacts.git_hub} />
           <Card value={contacts.git_flic} />
           <Card value={contacts.phone_number} />
           <Card value={contacts.email} />
