@@ -9,6 +9,7 @@ import TextBox from 'components/common/TextBlock'
 import Divider from 'components/common/Divider'
 import Avatar from 'components/common/Avatar'
 import Card from 'components/common/Card'
+import CloudSkills from 'components/common/Cloud'
 
 const Home = () => {
 
@@ -87,6 +88,8 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+      <Divider />
+      <CloudSkills skills={skills} />
     </>
   )
 }
