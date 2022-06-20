@@ -29,12 +29,14 @@ const Home = () => {
     education,
     experience,
     skills,
+    avatar,
   } = useSelector(state => ({
     fullName: state.persData.fullName,
     contacts: state.persData.contacts,
     education: state.persData.education,
     experience: state.persData.experience,
     skills: state.persData.skills,
+    avatar: state.persData.avatar,
   }))
 
   const candidateName = location.pathname
@@ -48,7 +50,7 @@ const Home = () => {
         <Content
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
-          avatar={<Avatar />} >
+          avatar={<Avatar src={avatar} />} >
           <Card value={contacts.vk} icon={<FacebookIcon />} />
           <Card value={contacts.git_hub} icon={<GitHubIcon />} />
           <Card value={contacts.git_flic} icon={<GitHubIcon />} />

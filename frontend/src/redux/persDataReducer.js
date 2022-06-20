@@ -20,14 +20,15 @@ const initialState = {
     exp_description: '',
   }],
   skills: [{
-    skill_name: '' ,
+    skill_name: '',
     skill_icon: '',
   }],
+  avatar: '',
 }
 
 const defaultAction = {}
 
-const persDataReducer = (state=initialState, action=defaultAction) => {
+const persDataReducer = (state = initialState, action = defaultAction) => {
   switch (action.type) {
   case SET_CANDIDATE_DATA:
     return {
@@ -37,6 +38,7 @@ const persDataReducer = (state=initialState, action=defaultAction) => {
       education: action.payload.education,
       experience: action.payload.experience,
       skills: action.payload.skills,
+      avatar: action.payload.avatar,
     }
   default:
     return {
