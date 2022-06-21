@@ -24,6 +24,7 @@ const initialState = {
     skill_icon: '',
   }],
   avatar: '',
+  resumeLink: '',
 }
 
 const defaultAction = {}
@@ -39,6 +40,7 @@ const persDataReducer = (state = initialState, action = defaultAction) => {
       experience: action.payload.experience,
       skills: action.payload.skills,
       avatar: action.payload.avatar,
+      resumeLink: action.payload.resume_link,
     }
   default:
     return {

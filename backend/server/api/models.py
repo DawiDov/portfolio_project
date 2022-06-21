@@ -15,6 +15,7 @@ class CandidateInfo(models.Model):
     education = models.ManyToManyField('Education')
     experience = models.ManyToManyField('Experience')
     avatar = models.TextField(null=True)
+    resume_link = models.TextField(null=True)
 
     def __str__(self):
         return self.full_name
