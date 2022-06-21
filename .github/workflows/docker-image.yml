@@ -1,21 +1,21 @@
-name: Docker Image CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Code checkout
-      uses: actions/checkout@v2
-    
-    - name: Run super-linter
-      uses: github/super-linter@v3
-
+name: Portfolio code consistency checkup
+  on: 
+    push:
+      branches: main
+    pull_request:
+      branches: main
+  
+  jobs:
+    builds:
+      runs-on: ubuntu-lates
+      
+      steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+        
+      - name: Run super-linter
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
