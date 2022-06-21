@@ -10,6 +10,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 
 // personal components
 import ContentContainer from 'components/common/ContentContainer'
+import Button from 'components/common/Button'
 import getData from 'components/service/actions'
 import Content from 'components/common/Content'
 import TextBox from 'components/common/TextBlock'
@@ -56,6 +57,7 @@ const Home = () => {
           <Card value={contacts.git_flic} icon={<GitHubIcon />} />
           <Card value={contacts.phone_number} />
           <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+          <Button title='скачать резюме' />
         </Content>
       </ContentContainer>
       <ContentContainer >
