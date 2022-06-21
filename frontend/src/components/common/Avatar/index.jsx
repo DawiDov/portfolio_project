@@ -20,7 +20,7 @@ Avatar.propTypes = {
 }
 
 Avatar.defaultProps = {
-  src: 'https://n-cdn.serienjunkies.de/hq/108312.jpg',
+  src: 'https://avatars.githubusercontent.com/u/79329931?s=200&v=4',
   className: null,
 }
 

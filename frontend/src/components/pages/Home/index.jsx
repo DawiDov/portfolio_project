@@ -10,6 +10,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 
 // personal components
 import ContentContainer from 'components/common/ContentContainer'
+import Button from 'components/common/Button'
 import getData from 'components/service/actions'
 import Content from 'components/common/Content'
 import TextBox from 'components/common/TextBlock'
@@ -29,12 +30,16 @@ const Home = () => {
     education,
     experience,
     skills,
+    avatar,
+    resumeLink,
   } = useSelector(state => ({
     fullName: state.persData.fullName,
     contacts: state.persData.contacts,
     education: state.persData.education,
     experience: state.persData.experience,
     skills: state.persData.skills,
+    avatar: state.persData.avatar,
+    resumeLink: state.persData.resumeLink,
   }))
 
   const candidateName = location.pathname
@@ -42,24 +47,26 @@ const Home = () => {
   useEffect(() => {
     dispatch(getData(candidateName))
   }, [])
+
   return (
     <>
       <ContentContainer background='#bec2c6'>
         <Content
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
-          avatar={<Avatar />} >
+          avatar={<Avatar src={avatar} />} >
+          <Card value={contacts.phone_number} />
           <Card value={contacts.vk} icon={<FacebookIcon />} />
           <Card value={contacts.git_hub} icon={<GitHubIcon />} />
           <Card value={contacts.git_flic} icon={<GitHubIcon />} />
-          <Card value={contacts.phone_number} />
           <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+          <Button
+            onClick={() => window.open(resumeLink)}
+            title='скачать резюме' />
         </Content>
       </ContentContainer>
       <ContentContainer >
-        <Content
-          sectionName='образование'
-        >
+        <Content sectionName='образование' >
           {education.map(edu =>
             <TextBox
               key={edu.edu_type}
@@ -70,9 +77,7 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <ContentContainer >
-        <Content
-          sectionName='Опыт'
-        >
+        <Content sectionName='Опыт работы'>
           {experience.map(exp =>
             <TextBox
               key={exp.exp_type}

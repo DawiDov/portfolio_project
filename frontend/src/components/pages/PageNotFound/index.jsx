@@ -1,31 +1,13 @@
-import { Paper, Typography } from '@mui/material'
-import { Box } from '@mui/system'
-import React from 'react' 
+import React from 'react'
+
+import style from './index.module.sass'
 
 const PageNotFound = () => (
-  <Box sx={{
-    backgroundColor: 'beige', 
-  }}>
-    <Paper 
-      variant='outlined'
-      elevation={5} 
-      sx={{
-        marginTop: '200px',
-        width: '400px',
-        height: '3em',
-        textAlign: 'center',
-        padding: '3em',
-      }}
-    >
-      <Typography
-        sx={{
-          fontSize: '20pt',
-        }}
-      >
-        Sorry, page not found
-      </Typography>
-    </Paper>
-  </Box>
+  <section className={style.container}>
+    <div className={style.text}>
+      page not found
+    </div>
+  </section>
 )
 
 export default PageNotFound
