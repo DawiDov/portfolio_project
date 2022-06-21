@@ -9,11 +9,10 @@ from .serializer import CandidateInfoSerializer
 
 
 class damirAPIView(viewsets.ModelViewSet):
-    queryset = CandidateInfo.objects.filter(
-        full_name__contains='Дамир')
+    queryset = CandidateInfo.objects.filter(full_name__contains="Дамир")
     serializer_class = CandidateInfoSerializer
 
 
 class arturAPIView(viewsets.ModelViewSet):
-    queryset = CandidateInfo.objects.filter(full_name__contains='Артур')
+    queryset = CandidateInfo.objects.filter(full_name__contains="Артур")
     serializer_class = CandidateInfoSerializer
