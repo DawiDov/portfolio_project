@@ -16,7 +16,7 @@ const Header = () => (
             <a href='#experience'>Опыт</a>
           </li>
           <li>
-            <a href='#skills'>Стек технологий</a>
+            <a href='#skills'>Стек</a>
           </li>
         </ul>
       </nav>
