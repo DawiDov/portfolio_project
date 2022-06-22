@@ -1,29 +1,16 @@
-name: Docker Image CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+on: push
+  
 jobs:
-
-  build:
-
+  lint:
+    name: Lint code base
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+    - name: Code checkout
+      uses: actions/checkout@v2
     
-    - name: Run containers
-      run: docker-compose -f docker-compose.dev.yml up --build --remove-orphan
-
-    - name: Run black
-      run: docker exec -w /app/backend -i backend_container black . --check --verbose
-
-    - name: Run isort
-      run: docker exec -w /app/backend -i backend_container isort -c
-
-    - name: Stop containers
-      if: always()
-      run:  docker-compose -f docker-compose.dev.yml down
+    - name: Run super-linter
+      uses: github/super-linter/slim@v4
+      env:
+        VALIDATE_ALL_CODEBASE: false
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

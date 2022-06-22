@@ -6,25 +6,25 @@ from .models import CandidateInfo, Contacts, Education, Experience, Skills
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
-        fields = '__all__'
+        fields = "__all__"
 
 
 class SkillsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skills
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = '__all__'
+        fields = "__all__"
 
 
 class ContactsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contacts
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CandidateInfoSerializer(serializers.ModelSerializer):
@@ -35,4 +35,4 @@ class CandidateInfoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CandidateInfo
-        fields = '__all__'
+        fields = "__all__"
