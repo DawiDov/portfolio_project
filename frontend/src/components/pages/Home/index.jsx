@@ -67,7 +67,7 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <ContentContainer >
-        <Content 
+        <Content
           sectionName='образование'
           id='education'
         >
@@ -95,14 +95,14 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <Divider />
-      <h2 id='skills'style={{
+      <h2 id='skills' style={{
         fontSize: '24px',
         fontWeight: '800',
         margin: '5px auto',
         textAlign: 'center',
         textTransform: 'uppercase',
       }}>
-        умения
+        стек
       </h2>
       <Divider sx={{ marginBottom: '10px' }} />
       <CloudSkills skills={skills} />
