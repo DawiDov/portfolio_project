@@ -50,8 +50,12 @@ const Home = () => {
 
   return (
     <>
-      <ContentContainer background='#bec2c6'>
+      <ContentContainer
+        id='contact'
+        background='#bec2c6'
+      >
         <Content
+          id='contact'
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
           avatar={<Avatar src={avatar} />} >
@@ -65,8 +69,12 @@ const Home = () => {
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-      <ContentContainer >
-        <Content sectionName='образование' >
+      <ContentContainer
+        id='education'
+      >
+        <Content 
+          sectionName='образование'
+        >
           {education.map(edu =>
             <TextBox
               key={edu.edu_type}
@@ -76,8 +84,12 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <ContentContainer >
-        <Content sectionName='Опыт работы'>
+      <ContentContainer
+        id='experience'
+      >
+        <Content
+          sectionName='Опыт работы'
+        >
           {experience.map(exp =>
             <TextBox
               key={exp.exp_type}
@@ -88,14 +100,14 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <Divider />
-      <h2 style={{
+      <h2 id='skills' style={{
         fontSize: '24px',
         fontWeight: '800',
         margin: '5px auto',
         textAlign: 'center',
         textTransform: 'uppercase',
       }}>
-        умения
+        стек
       </h2>
       <Divider sx={{ marginBottom: '10px' }} />
       <CloudSkills skills={skills} />
