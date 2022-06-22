@@ -4,9 +4,10 @@ import classNames from 'classnames'
 
 import style from './index.module.sass'
 
-const ContentContainer = ({children, background, className, sx }) => (
+const ContentContainer = ({children, background, className, sx, id }) => (
 
   <section
+    id={id}
     className={
       classNames(style.container, className)
     }
@@ -27,12 +28,14 @@ ContentContainer.propTypes = {
   sx: PropTypes.objectOf(PropTypes.string),
   className: PropTypes.string,
   background: PropTypes.string,
+  id: PropTypes.string,
 }
 
 ContentContainer.defaultProps = {
   sx: null,
   background: 'white',
   className: null,
+  id: null,
 }
 
 export default ContentContainer
