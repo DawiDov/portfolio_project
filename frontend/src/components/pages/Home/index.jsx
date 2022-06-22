@@ -50,9 +50,11 @@ const Home = () => {
 
   return (
     <>
-      <ContentContainer background='#bec2c6'>
+      <ContentContainer
+        id='contact'
+        background='#bec2c6'
+      >
         <Content
-          id='contact'
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
           avatar={<Avatar src={avatar} />} >
@@ -66,10 +68,11 @@ const Home = () => {
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-      <ContentContainer >
+      <ContentContainer
+        id='education'
+      >
         <Content 
           sectionName='образование'
-          id='education'
         >
           {education.map(edu =>
             <TextBox
@@ -80,9 +83,10 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <ContentContainer >
+      <ContentContainer
+        id='experience'
+      >
         <Content
-          id='experience'
           sectionName='Опыт работы'
         >
           {experience.map(exp =>
@@ -95,7 +99,7 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <Divider />
-      <h2 id='skills'style={{
+      <h2 id='skills' style={{
         fontSize: '24px',
         fontWeight: '800',
         margin: '5px auto',
