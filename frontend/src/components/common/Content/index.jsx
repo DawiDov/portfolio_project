@@ -5,9 +5,10 @@ import classNames from 'classnames'
 import Divider from 'components/common/Divider'
 import style from './index.module.sass'
 
-const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, sectionName }) => (
+const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, sectionName, id }) => (
 
   <section
+    id={id}
     className={
       classNames(style.container, className)
     }
@@ -41,6 +42,7 @@ Content.propTypes = {
   sx: PropTypes.objectOf(PropTypes.string),
   sectionName: PropTypes.string,
   avatar: PropTypes.node,
+  id: PropTypes.string,
 }
 
 Content.defaultProps = {
@@ -50,6 +52,7 @@ Content.defaultProps = {
   className: null,
   sectionName: null,
   avatar: null,
+  id: null,
 }
 
 export default Content
