@@ -5,9 +5,10 @@ import classNames from 'classnames'
 import Divider from 'components/common/Divider'
 import style from './index.module.sass'
 
-const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, sectionName }) => (
+const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, sectionName, id }) => (
 
   <section
+    id={id}
     className={
       classNames(style.container, className)
     }

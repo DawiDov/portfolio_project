@@ -7,19 +7,16 @@ const Header = () => (
       <nav className={style.menu}>
         <ul>
           <li>
-            <a href='#home'>Home</a>
+            <a href='#contact'>Контакты</a>
           </li>
           <li>
-            <a href='#about'>About</a>
+            <a href='#education'>Образование</a>
           </li>
           <li>
-            <a href='#resume'>Resume</a>
+            <a href='#experience'>Опыт</a>
           </li>
           <li>
-            <a href='#works'>Works</a>
-          </li>
-          <li>
-            <a href='#contact'>Contact</a>
+            <a href='#skills'>Стек технологий</a>
           </li>
         </ul>
       </nav>
