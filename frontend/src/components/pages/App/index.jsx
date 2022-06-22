@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import React  from 'react'
+import React from 'react'
 
 import Layout from 'components/layoutComponents/Layout'
 import PageNotFound from 'components/pages/PageNotFound'
@@ -10,10 +10,10 @@ const App = () => (
   <Routes>
     <Route path='/' element={<Layout />} >
       <Route index element={<Mockup />} />
-      <Route path='artur' element={<Home />} />
-      <Route path='damir' element={<Home />} />
+      <Route path={encodeURIComponent('Давидов-Артур')} element={<Home />} />
+      <Route path={encodeURIComponent('Ахмадуллин-Дамир')} element={<Home />} />
     </Route>
-    <Route path='*' element={<PageNotFound/>} />
+    <Route path='*' element={<PageNotFound />} />
   </Routes>
 )
 
