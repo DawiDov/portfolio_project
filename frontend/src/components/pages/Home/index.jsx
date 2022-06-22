@@ -52,6 +52,7 @@ const Home = () => {
     <>
       <ContentContainer background='#bec2c6'>
         <Content
+          id='contact'
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
           avatar={<Avatar src={avatar} />} >
@@ -66,7 +67,10 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <ContentContainer >
-        <Content sectionName='образование' >
+        <Content 
+          sectionName='образование'
+          id='education'
+        >
           {education.map(edu =>
             <TextBox
               key={edu.edu_type}
@@ -77,7 +81,10 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <ContentContainer >
-        <Content sectionName='Опыт работы'>
+        <Content
+          id='experience'
+          sectionName='Опыт работы'
+        >
           {experience.map(exp =>
             <TextBox
               key={exp.exp_type}
@@ -88,7 +95,7 @@ const Home = () => {
         </Content>
       </ContentContainer>
       <Divider />
-      <h2 style={{
+      <h2 id='skills'style={{
         fontSize: '24px',
         fontWeight: '800',
         margin: '5px auto',
