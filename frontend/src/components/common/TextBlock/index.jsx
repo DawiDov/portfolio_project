@@ -5,8 +5,8 @@ import classNames from 'classnames'
 import style from './index.module.sass'
 
 const TextBox = ({ sx, title, paragraph }) => (
-  
-  <div 
+
+  <article
     className={
       classNames(style.typography)
     }
@@ -20,7 +20,7 @@ const TextBox = ({ sx, title, paragraph }) => (
     >
       {paragraph}
     </p>
-  </div>
+  </article>
 )
 
 TextBox.propTypes = {

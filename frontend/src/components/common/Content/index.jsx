@@ -15,9 +15,9 @@ const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, secti
     style={{ ...sx }}>
     <div
       className={style.titleBox}>
-      <div className={avatar ? style.avatar : null}>
+      <picture className={avatar ? style.avatar : null}>
         {avatar}
-      </div>
+      </picture>
       <h1 className={sectionName ? style.title : null}
         style={{ ...sectionSX }}
       >
@@ -26,11 +26,11 @@ const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, secti
         <Divider className={sectionName ? null : style.hidden} />
       </h1>
     </div>
-    <div
+    <p
       className={style.children}
       style={{ ...childrenSX }}>
       {children}
-    </div>
+    </p>
   </section>
 )
 

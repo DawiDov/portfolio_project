@@ -7,17 +7,17 @@ import style from './index.module.sass'
 
 const Card = ({ value, icon, className }) => (
 
-  <div
+  <article
     className={
       classNames(style.contact, className)
     }>
-    <div className={style.icon}>
+    <picture className={style.icon}>
       {icon}
-    </div>
-    <div className={style.value}>
+    </picture>
+    <address className={style.value}>
       {value}
-    </div>
-  </div>
+    </address>
+  </article>
 )
 
 Card.propTypes = {

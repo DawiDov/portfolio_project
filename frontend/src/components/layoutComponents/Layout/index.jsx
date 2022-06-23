@@ -1,4 +1,4 @@
-import React from 'react' 
+import React from 'react'
 import ParticlesBg from 'particles-bg'
 
 import Title from 'components/layoutComponents/Title'
@@ -9,13 +9,13 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => (
   <>
-    <div className={style.topContainer}>
-      <ParticlesBg type="lines" bg/>
-      <Header/> 
+    <section className={style.topContainer}>
+      <ParticlesBg type="lines" bg />
+      <Header />
       <Title />
-      <Button/>
-    </div>
-    <Outlet/>
+      <Button />
+    </section>
+    <Outlet />
   </>
 )
 
