@@ -16,9 +16,6 @@ const Layout = () => {
     projectLink: state.persData.projectLink
   }))
 
-  console.log('Privet')
-  console.log(projectLink)
-
   return ( 
     <>
       <section className={style.topContainer}>
