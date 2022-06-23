@@ -28,7 +28,7 @@ SECRET_KEY = "j+qxsyi2xv!6lkv-hn)c$qxeo+t#1r#)0s)o^yh)ds#k%%19tm"
 DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = [
-    "кандидат.рус",
+    "pet-project.site",
     "31.31.198.90",
     #"0.0.0.0",
     #"localhost",
