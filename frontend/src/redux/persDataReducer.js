@@ -25,6 +25,7 @@ const initialState = {
   }],
   avatar: '',
   resumeLink: '',
+  project_link: '',
 }
 
 const defaultAction = {}

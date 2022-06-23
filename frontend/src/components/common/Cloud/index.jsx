@@ -36,7 +36,7 @@ const CloudSkills = ({ skills }) => {
 
   return (
     <section className={style.cloudWrapper}>
-      <div className={style.cloudBorder}>
+      <article className={style.cloudBorder}>
         <TagCloud
           style={{
             fontFamily: 'sans-serif',
@@ -49,7 +49,7 @@ const CloudSkills = ({ skills }) => {
           }}>
           {cloud}
         </TagCloud>
-      </div>
+      </article>
     </section>
   )
 }

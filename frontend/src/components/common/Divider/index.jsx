@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import style from './index.module.sass'
 
 const Divider = ({ className }) => (
-  <div className={
+  <aside className={
     classNames(className, style.divider)
   } />
 )
