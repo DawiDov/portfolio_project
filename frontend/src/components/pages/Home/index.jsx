@@ -50,7 +50,10 @@ const Home = () => {
 
   return (
     <>
-      <ContentContainer background='#bec2c6'>
+      <ContentContainer
+        id='contact'
+        background='#bec2c6'
+      >
         <Content
           id='contact'
           sectionName={fullName}
@@ -66,10 +69,11 @@ const Home = () => {
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-      <ContentContainer >
-        <Content
+      <ContentContainer
+        id='education'
+      >
+        <Content 
           sectionName='образование'
-          id='education'
         >
           {education.map(edu =>
             <TextBox
@@ -80,9 +84,10 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <ContentContainer >
+      <ContentContainer
+        id='experience'
+      >
         <Content
-          id='experience'
           sectionName='Опыт работы'
         >
           {experience.map(exp =>
