@@ -16,7 +16,6 @@ const Layout = () => {
     projectLink: state.persData.projectLink
   }))
 
-
   return ( 
     <>
       <section className={style.topContainer}>
