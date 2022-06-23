@@ -26,11 +26,11 @@ const Content = ({ children, sectionSX, childrenSX, avatar, className, sx, secti
         <Divider className={sectionName ? null : style.hidden} />
       </h1>
     </div>
-    <p
+    <article
       className={style.children}
       style={{ ...childrenSX }}>
       {children}
-    </p>
+    </article>
   </section>
 )
 
