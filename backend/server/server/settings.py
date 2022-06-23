@@ -25,9 +25,11 @@ SECRET_KEY = "j+qxsyi2xv!6lkv-hn)c$qxeo+t#1r#)0s)o^yh)ds#k%%19tm"
 
 #
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+#DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = False
 
 ALLOWED_HOSTS = [
+    "кандидат.рус"
     "127.0.0.1",
     "0.0.0.0",
     "localhost",
