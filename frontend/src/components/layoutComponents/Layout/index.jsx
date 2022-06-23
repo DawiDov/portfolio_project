@@ -13,8 +13,11 @@ const Layout = () => {
   const {
     projectLink,
   } = useSelector(state => ({
-    projectLink: state.persData.project_link
+    projectLink: state.persData.projectLink
   }))
+
+  console.log('Privet')
+  console.log(projectLink)
 
   return ( 
     <>

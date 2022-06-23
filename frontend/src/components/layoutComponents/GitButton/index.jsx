@@ -5,9 +5,9 @@ import style from './index.module.sass'
 
 const GitButton = ({ projectLink }) => (
   <div className={style.buttonWrapper}>
-    <buton type='butoon' className={style.button}>
+    <div className={style.button}>
       <a className={style.button_text} href={projectLink}>GITHUB</a>
-    </buton>
+    </div>
   </div>
 )
 
@@ -20,7 +20,4 @@ GitButton.defaultProps = {
 }
 
 export default GitButton
-
-
-
 
