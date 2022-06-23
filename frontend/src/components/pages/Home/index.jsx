@@ -49,7 +49,7 @@ const Home = () => {
   }, [])
 
   return (
-    <>
+    <main>
       <ContentContainer
         id='contact'
         background='#bec2c6'
@@ -72,7 +72,7 @@ const Home = () => {
       <ContentContainer
         id='education'
       >
-        <Content 
+        <Content
           sectionName='образование'
         >
           {education.map(edu =>
@@ -111,7 +111,7 @@ const Home = () => {
       </h2>
       <Divider sx={{ marginBottom: '10px' }} />
       <CloudSkills skills={skills} />
-    </>
+    </main>
   )
 }
 
