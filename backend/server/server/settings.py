@@ -33,6 +33,12 @@ ALLOWED_HOSTS = [
     "0.0.0.0",
     "localhost",
     "backend",
+    "31.31.198.90",
+    #"0.0.0.0",
+    #"localhost",
+    #"backend",
+    #"example_domain.test",
+    #"www.example_domain.test",
 ]
 
 
