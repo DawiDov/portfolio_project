@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(кандидат.рус)
+domains=(pet-project.site)
 rsa_key_size=4096
 data_path="./docker/nginx/certbot"
 email="" # Adding a valid address is strongly recommended
@@ -32,7 +32,7 @@ path="/etc/letsencrypt/live/$domains"
 mkdir -p "$data_path/conf/live/$domains"
 docker-compose -f docker-compose.prod.yml run --rm --entrypoint "\
   openssl req -x509 -nodes -newkey rsa:1024 -days 1\
-    -keyout '$path/privkey.pem' \
+    -keyout '$path/privkey.pem'
     -out '$path/fullchain.pem' \
     -subj '/CN=localhost'" certbot
 echo
