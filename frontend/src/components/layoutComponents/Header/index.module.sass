@@ -18,32 +18,21 @@
     justify-content: center 
     li
       text-transform: uppercase
-      margin: 0 20px 0 20px 
+      margin: 1em
       display: inline
-      font-size: 3rem
       a
-        letter-spacing: 3px
+        letter-spacing: 0.2em
         font-family: style.$header-menu-font-family
-        font-size: style.$header-menu-font-size
+        font-size: calc(0.3em + 1.9vw)
         text-decoration: none
         color: rgba(256,256,256, .4)
         outline-color: black
-        text-decoration-color: black
-        text-decoration-line: 1px
-
         &:focus,
         &:hover
           color: white
 
-  .title
-    display: flex
-    justify-content: center
 
-@media (max-width: 680px)
-  .menu ul 
-    li
-      margin: 0 8px 0 8px 
-      a
-        font-size: style.$header-menu-font-size / 2
-        letter-spacing: 2px
-    
+@media screen and (min-width: 1130px)
+  .menu ul li a
+    font-size: 25px
+   
