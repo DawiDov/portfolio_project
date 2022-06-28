@@ -9,7 +9,7 @@ const ContentContainer = ({children, background, className, sx, id }) => (
   <section
     id={id}
     className={
-      classNames(style.container, className)
+      classNames(style.container, style.indent, className)
     }
     style={{
       ...sx,
