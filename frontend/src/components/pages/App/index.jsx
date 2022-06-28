@@ -10,8 +10,8 @@ const App = () => (
   <Routes>
     <Route path='/' element={<Layout />} >
       <Route index element={<Mockup />} />
-      <Route path={encodeURIComponent('Давидов-Артур')} element={<Home />} />
-      <Route path={encodeURIComponent('Ахмадуллин-Дамир')} element={<Home />} />
+      <Route path={encodeURIComponent('ADavidov')} element={<Home />} />
+      <Route path={encodeURIComponent('DAkhmadullin')} element={<Home />} />
     </Route>
     <Route path='*' element={<PageNotFound />} />
   </Routes>
