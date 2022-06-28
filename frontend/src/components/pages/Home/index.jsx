@@ -55,7 +55,6 @@ const Home = () => {
         background='#bec2c6'
       >
         <Content
-          id='contact'
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
           avatar={<Avatar src={avatar} />} >
