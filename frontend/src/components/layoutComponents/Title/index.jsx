@@ -9,7 +9,7 @@ const Title = () => (
       style.title,
       style.title_animate,
       style.title_border_animate)}>
-      <p>Проект-Резюме</p>
+      <p>Резюме</p>
     </article>
     <p className={style.text}>
       Я инженер веб-разработки и использую React для разработки SPA приложений. Этот проект представляет собой резюме и его можно использовать в качестве портфолио
