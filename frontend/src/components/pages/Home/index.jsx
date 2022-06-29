@@ -9,6 +9,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import FacebookIcon from '@mui/icons-material/Facebook'
 
 // personal components
+import StackTitle from 'components/common/StackTitle'
 import ContentContainer from 'components/common/ContentContainer'
 import Button from 'components/common/Button'
 import getData from 'components/service/actions'
@@ -83,6 +84,7 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+      <Divider sx={{ width: '200px' }} />
       <ContentContainer
         id='experience'
       >
@@ -98,17 +100,7 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-      <Divider />
-      <h2 id='skills' style={{
-        fontSize: '24px',
-        fontWeight: '800',
-        margin: '5px auto',
-        textAlign: 'center',
-        textTransform: 'uppercase',
-      }}>
-        стек
-      </h2>
-      <Divider sx={{ marginBottom: '10px' }} />
+      <StackTitle id='stack' />
       <CloudSkills skills={skills} />
     </main>
   )
