@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     "0.0.0.0",
     "localhost",
     "backend",
-    "31.31.198.90",
+    "151.248.115.145",
     #"0.0.0.0",
     #"localhost",
     #"backend",
