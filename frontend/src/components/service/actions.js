@@ -15,7 +15,7 @@ const getData = (candidateName) => (dispatch) => {
 
   axios.defaults.baseURL = `${window.location.origin}/`
 
-  const link = `http://151.248.115.145/api/v1${candidateName}`
+  const link = `https://151.248.115.145/api/v1${candidateName}`
   // const link = `http://localhost/api/v1${candidateName}`
 
   axios.get(link).then(resp => {
