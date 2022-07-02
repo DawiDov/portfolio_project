@@ -50,6 +50,10 @@ const Home = () => {
     dispatch(getData(candidateName))
   }, [])
 
+  const getNickName = (link) => {
+    const splitArray = link.split('/')
+    return splitArray[splitArray.length - 1]
+  }
   return (
     <main>
       <ContentContainer
@@ -60,11 +64,34 @@ const Home = () => {
           sectionName={fullName}
           childrenSX={contentAlign}
           avatar={<Avatar src={avatar} />} >
-          <Card value={contacts.phone_number} />
-          <Card value={contacts.vk} icon={<Facebook />} />
-          <Card value={contacts.git_hub} icon={<GitHub />} />
-          <Card value={contacts.git_flic} icon={<GitHub />} />
-          <Card value={contacts.email} icon={<AlternateEmail />} />
+          <Card
+            title={contacts.phone_number}
+            link='#' />
+          <Card
+            title={
+              `@${getNickName(contacts.vk)}`
+            }
+            isLink
+            link={contacts.vk}
+            icon={<Facebook />} />
+          <Card
+            title={
+              `@${getNickName(contacts.git_hub)}`
+            }
+            isLink
+            link={contacts.git_hub}
+            icon={<GitHub />} />
+          <Card
+            title={
+              `@${getNickName(contacts.git_flic)}`
+            }
+            isLink
+            link={contacts.git_flic}
+            icon={<GitHub />} />
+          <Card
+            title={contacts.email}
+            link={contacts.email}
+            icon={<AlternateEmail />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
