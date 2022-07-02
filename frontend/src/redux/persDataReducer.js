@@ -1,6 +1,6 @@
 import {
   SET_CANDIDATE_DATA,
-} from 'service/constants'
+} from 'components/service/constants'
 
 const initialState = {
   fullName: '',

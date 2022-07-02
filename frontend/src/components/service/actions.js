@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import {
   SET_CANDIDATE_DATA,
-} from 'service/constants'
+} from 'components/service/constants'
 import toastOnError from 'utils/Utils'
 
 
