@@ -1,24 +1,25 @@
-// used packages
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Facebook, GitHub, AlternateEmail } from '@mui/icons-material'
 
-// icons
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import FacebookIcon from '@mui/icons-material/Facebook'
+import getData from 'service/actions'
+import {
+  Avatar,
+  Button,
+  Card,
+  Content,
+  ContentContainer,
+  Divider,
+  StackTitle,
+  TextBlock,
+  CloudSkills
+} from 'components/common'
 
-// personal components
-import StackTitle from 'components/common/StackTitle'
-import ContentContainer from 'components/common/ContentContainer'
-import Button from 'components/common/Button'
-import getData from 'components/service/actions'
-import Content from 'components/common/Content'
-import TextBox from 'components/common/TextBlock'
-import Divider from 'components/common/Divider'
-import Avatar from 'components/common/Avatar'
-import Card from 'components/common/Card'
-import CloudSkills from 'components/common/Cloud'
+import {
+  greyBackground,
+  contentAlign
+} from './styles'
 
 const Home = () => {
 
@@ -53,17 +54,17 @@ const Home = () => {
     <main>
       <ContentContainer
         id='contact'
-        background='#bec2c6'
+        background={greyBackground}
       >
         <Content
           sectionName={fullName}
-          childrenSX={{ alignSelf: 'center' }}
+          childrenSX={contentAlign}
           avatar={<Avatar src={avatar} />} >
           <Card value={contacts.phone_number} />
-          <Card value={contacts.vk} icon={<FacebookIcon />} />
-          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
-          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
-          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+          <Card value={contacts.vk} icon={<Facebook />} />
+          <Card value={contacts.git_hub} icon={<GitHub />} />
+          <Card value={contacts.git_flic} icon={<GitHub />} />
+          <Card value={contacts.email} icon={<AlternateEmail />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
@@ -76,7 +77,7 @@ const Home = () => {
           sectionName='образование'
         >
           {education.map(edu =>
-            <TextBox
+            <TextBlock
               key={edu.edu_type}
               title={edu.edu_type}
               paragraph={edu.edu_description}
@@ -92,7 +93,7 @@ const Home = () => {
           sectionName='Опыт работы'
         >
           {experience.map(exp =>
-            <TextBox
+            <TextBlock
               key={exp.exp_type}
               title={exp.exp_type}
               paragraph={exp.exp_description}
