@@ -28,16 +28,12 @@ SECRET_KEY = "j+qxsyi2xv!6lkv-hn)c$qxeo+t#1r#)0s)o^yh)ds#k%%19tm"
 DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = [
-    "pet-project.site" "127.0.0.1",
+    "127.0.0.1",
     "0.0.0.0",
     "localhost",
     "backend",
-    "151.248.115.145",
-    # "0.0.0.0",
-    # "localhost",
-    # "backend",
-    # "example_domain.test",
-    # "www.example_domain.test",
+    "pet-project.site",
+    "www.pet-project.site"
 ]
 
 
@@ -70,7 +66,7 @@ REST_FRAMEWORK = {
 }
 
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+CORS_ALLOWED_ORIGINS = ["https://pet-project.site", "https://151.248.115.145", "http://localhost:3000", "http://127.0.0.1:3000"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
