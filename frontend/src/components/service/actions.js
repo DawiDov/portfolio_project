@@ -15,7 +15,7 @@ const getData = (candidateName) => (dispatch) => {
 
   axios.defaults.baseURL = `${window.location.origin}/`
 
-  const link = `http://pet-project.site/api/v1${candidateName}`
+  const link = `https://pet-project.site/api/v1${candidateName}`
   // const link = `http://localhost/api/v1${candidateName}`
 
   axios.get(link).then(resp => {
