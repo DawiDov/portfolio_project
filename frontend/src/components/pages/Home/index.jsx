@@ -25,6 +25,7 @@ const Home = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
+  const candidateName = location.pathname
 
   const {
     fullName,
@@ -44,8 +45,6 @@ const Home = () => {
     resumeLink: state.persData.resumeLink,
   }))
 
-  const candidateName = location.pathname
-
   useEffect(() => {
     dispatch(getData(candidateName))
   }, [])
@@ -54,8 +53,11 @@ const Home = () => {
     const splitArray = link.split('/')
     return splitArray[splitArray.length - 1]
   }
+
   return (
     <main>
+
+      {/* CONTACTS --------------------------------------------------------*/}
       <ContentContainer
         id='contact'
         background={greyBackground}
@@ -97,12 +99,10 @@ const Home = () => {
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-      <ContentContainer
-        id='education'
-      >
-        <Content
-          sectionName='образование'
-        >
+
+      {/* EDUCATION -------------------------------------------------------*/}
+      <ContentContainer id='education'>
+        <Content sectionName='образование'>
           {education.map(edu =>
             <TextBlock
               key={edu.edu_type}
@@ -112,13 +112,12 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+
       <Divider sx={{ width: '200px' }} />
-      <ContentContainer
-        id='experience'
-      >
-        <Content
-          sectionName='Опыт работы'
-        >
+
+      {/* EXPERIENCE ------------------------------------------------------*/}
+      <ContentContainer id='experience' >
+        <Content sectionName='Опыт работы'>
           {experience.map(exp =>
             <TextBlock
               key={exp.exp_type}
@@ -128,8 +127,11 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+
+      {/* STACK -----------------------------------------------------------*/}
       <StackTitle id='stack' />
       <CloudSkills skills={skills} />
+
     </main>
   )
 }
