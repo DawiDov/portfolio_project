@@ -5,7 +5,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 
 import style from './index.module.sass'
 
-const Card = ({ isLink, title, link, icon, className }) => (
+const Card = ({ isLink, title, value, icon, className }) => (
 
   <article
     className={
@@ -20,7 +20,7 @@ const Card = ({ isLink, title, link, icon, className }) => (
           className={style.link}
           rel='noreferrer'
           target='_blank'
-          href={link}>
+          href={value}>
           {title}
         </a>
       ) : (
@@ -36,7 +36,7 @@ const Card = ({ isLink, title, link, icon, className }) => (
 
 Card.propTypes = {
   isLink: PropTypes.bool,
-  link: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   icon: PropTypes.node,
   className: PropTypes.string,
