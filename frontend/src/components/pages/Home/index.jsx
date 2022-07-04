@@ -50,11 +50,6 @@ const Home = () => {
   const greyBackground = '#bec2c6'
   const contentAlign = { alignSelf: 'center' }
 
-  const getNickName = (link) => {
-    const splitArray = link.split('/')
-    return splitArray[splitArray.length - 1]
-  }
-
   return (
     <main>
 
@@ -71,23 +66,17 @@ const Home = () => {
             title={contacts.phone_number}
             link='#' />
           <Card
-            title={
-              `@${getNickName(contacts.vk)}`
-            }
+            title="@VK"
             isLink
             link={contacts.vk}
             icon={<Facebook />} />
           <Card
-            title={
-              `@${getNickName(contacts.git_hub)}`
-            }
+            title="@GitHub"
             isLink
             link={contacts.git_hub}
             icon={<GitHub />} />
           <Card
-            title={
-              `@${getNickName(contacts.git_flic)}`
-            }
+            title="@GitFlic"
             isLink
             link={contacts.git_flic}
             icon={<GitHub />} />
