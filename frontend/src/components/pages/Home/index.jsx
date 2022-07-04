@@ -4,7 +4,10 @@ import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // icons
-import { Facebook, GitHub, AlternateEmail } from '@mui/icons-material'
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import FacebookIcon from '@mui/icons-material/Facebook'
+
 // personal components
 import StackTitle from 'components/common/StackTitle'
 import ContentContainer from 'components/common/ContentContainer'
@@ -42,11 +45,6 @@ const Home = () => {
 
   const candidateName = location.pathname
 
-  const getNickName = (link) => {
-    const splitArray = link.split('/')
-    return splitArray[splitArray.length - 1]
-  }
-
   useEffect(() => {
     dispatch(getData(candidateName))
   }, [])
@@ -61,34 +59,11 @@ const Home = () => {
           sectionName={fullName}
           childrenSX={{ alignSelf: 'center' }}
           avatar={<Avatar src={avatar} />} >
-          <Card
-            title={contacts.phone_number}
-            link='#' />
-          <Card
-            title={
-              `@${getNickName(contacts.vk)}`
-            }
-            isLink
-            link={contacts.vk}
-            icon={<Facebook />} />
-          <Card
-            title={
-              `@${getNickName(contacts.git_hub)}`
-            }
-            isLink
-            link={contacts.git_hub}
-            icon={<GitHub />} />
-          <Card
-            title={
-              `@${getNickName(contacts.git_flic)}`
-            }
-            isLink
-            link={contacts.git_flic}
-            icon={<GitHub />} />
-          <Card
-            title={contacts.email}
-            link={contacts.email}
-            icon={<AlternateEmail />} />
+          <Card value={contacts.phone_number} />
+          <Card value={contacts.vk} icon={<FacebookIcon />} />
+          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
+          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
+          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
