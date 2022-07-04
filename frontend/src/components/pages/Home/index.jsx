@@ -16,16 +16,14 @@ import {
   CloudSkills
 } from 'components/common'
 
-import {
-  greyBackground,
-  contentAlign
-} from './styles'
-
 const Home = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
   const candidateName = location.pathname
+
+  const greyBackground = '#bec2c6'
+  const contentAlign = { alignSelf: 'center' }
 
   const {
     fullName,
