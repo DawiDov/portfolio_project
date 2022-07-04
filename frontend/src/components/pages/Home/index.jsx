@@ -22,9 +22,6 @@ const Home = () => {
   const dispatch = useDispatch()
   const candidateName = location.pathname
 
-  const greyBackground = '#bec2c6'
-  const contentAlign = { alignSelf: 'center' }
-
   const {
     fullName,
     contacts,
@@ -49,6 +46,9 @@ const Home = () => {
     dispatch(getData(candidateName, abortController.signal))
     return () => abortController.abort()
   }, [])
+
+  const greyBackground = '#bec2c6'
+  const contentAlign = { alignSelf: 'center' }
 
   const getNickName = (link) => {
     const splitArray = link.split('/')
