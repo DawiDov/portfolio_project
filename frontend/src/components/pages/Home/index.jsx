@@ -1,31 +1,29 @@
+// used packages
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Facebook, GitHub, AlternateEmail } from '@mui/icons-material'
 
+// icons
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import FacebookIcon from '@mui/icons-material/Facebook'
+
+// personal components
+import StackTitle from 'components/common/StackTitle'
+import ContentContainer from 'components/common/ContentContainer'
+import Button from 'components/common/Button'
 import getData from 'service/actions'
-import {
-  Avatar,
-  Button,
-  Card,
-  Content,
-  ContentContainer,
-  Divider,
-  StackTitle,
-  TextBlock,
-  CloudSkills
-} from 'components/common'
-
-import {
-  greyBackground,
-  contentAlign
-} from './styles'
+import Content from 'components/common/Content'
+import TextBox from 'components/common/TextBlock'
+import Divider from 'components/common/Divider'
+import Avatar from 'components/common/Avatar'
+import Card from 'components/common/Card'
+import CloudSkills from 'components/common/Cloud'
 
 const Home = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
-  const candidateName = location.pathname
 
   const {
     fullName,
@@ -45,42 +43,40 @@ const Home = () => {
     resumeLink: state.persData.resumeLink,
   }))
 
+  const candidateName = location.pathname
+
   useEffect(() => {
-    const abortController = new AbortController()
-
-    dispatch(getData(candidateName, abortController.signal))
-    return () => abortController.abort()
+    dispatch(getData(candidateName))
   }, [])
-
 
   return (
     <main>
-
-      {/* CONTACTS --------------------------------------------------------*/}
       <ContentContainer
         id='contact'
-        background={greyBackground}
+        background='#bec2c6'
       >
         <Content
           sectionName={fullName}
-          childrenSX={contentAlign}
+          childrenSX={{ alignSelf: 'center' }}
           avatar={<Avatar src={avatar} />} >
           <Card value={contacts.phone_number} />
-          <Card value={contacts.vk} icon={<Facebook />} />
-          <Card value={contacts.git_hub} icon={<GitHub />} />
-          <Card value={contacts.git_flic} icon={<GitHub />} />
-          <Card value={contacts.email} icon={<AlternateEmail />} />
+          <Card value={contacts.vk} icon={<FacebookIcon />} />
+          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
+          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
+          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-
-      {/* EDUCATION -------------------------------------------------------*/}
-      <ContentContainer id='education'>
-        <Content sectionName='образование'>
+      <ContentContainer
+        id='education'
+      >
+        <Content
+          sectionName='образование'
+        >
           {education.map(edu =>
-            <TextBlock
+            <TextBox
               key={edu.edu_type}
               title={edu.edu_type}
               paragraph={edu.edu_description}
@@ -88,14 +84,15 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-
       <Divider sx={{ width: '200px' }} />
-
-      {/* EXPERIENCE ------------------------------------------------------*/}
-      <ContentContainer id='experience' >
-        <Content sectionName='Опыт работы'>
+      <ContentContainer
+        id='experience'
+      >
+        <Content
+          sectionName='Опыт работы'
+        >
           {experience.map(exp =>
-            <TextBlock
+            <TextBox
               key={exp.exp_type}
               title={exp.exp_type}
               paragraph={exp.exp_description}
@@ -103,11 +100,8 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
-
-      {/* STACK -----------------------------------------------------------*/}
       <StackTitle id='stack' />
       <CloudSkills skills={skills} />
-
     </main>
   )
 }
