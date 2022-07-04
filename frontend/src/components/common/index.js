@@ -5,7 +5,7 @@ import Content from './Content'
 import ContentContainer from './ContentContainer'
 import Divider from './Divider'
 import StackTitle from './StackTitle'
-import TextBlock from './TextBlock'
+import TextBox from './TextBox'
 import CloudSkills from './Cloud'
 
 export {
@@ -16,6 +16,6 @@ export {
   ContentContainer,
   Divider,
   StackTitle,
-  TextBlock,
+  TextBox,
   CloudSkills
 }

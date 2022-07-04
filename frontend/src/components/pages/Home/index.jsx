@@ -8,17 +8,18 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import FacebookIcon from '@mui/icons-material/Facebook'
 
-// personal components
-import StackTitle from 'components/common/StackTitle'
-import ContentContainer from 'components/common/ContentContainer'
-import Button from 'components/common/Button'
 import getData from 'service/actions'
-import Content from 'components/common/Content'
-import TextBox from 'components/common/TextBlock'
-import Divider from 'components/common/Divider'
-import Avatar from 'components/common/Avatar'
-import Card from 'components/common/Card'
-import CloudSkills from 'components/common/Cloud'
+import {
+  Avatar,
+  Button,
+  Card,
+  Content,
+  ContentContainer,
+  Divider,
+  StackTitle,
+  TextBox,
+  CloudSkills
+} from 'components/common'
 
 const Home = () => {
 
