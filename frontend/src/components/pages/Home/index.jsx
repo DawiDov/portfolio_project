@@ -46,7 +46,10 @@ const Home = () => {
   }))
 
   useEffect(() => {
-    dispatch(getData(candidateName))
+    const abortController = new AbortController()
+
+    dispatch(getData(candidateName, abortController.signal))
+    return () => abortController.abort()
   }, [])
 
   const getNickName = (link) => {
