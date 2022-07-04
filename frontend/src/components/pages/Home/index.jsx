@@ -4,9 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 // icons
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import FacebookIcon from '@mui/icons-material/Facebook'
+import { Facebook, GitHub, AlternateEmail } from '@mui/icons-material'
 
 import getData from 'service/actions'
 import {
@@ -20,6 +18,11 @@ import {
   TextBox,
   CloudSkills
 } from 'components/common'
+
+import {
+  greyBackground,
+  contentAlign
+} from './styles'
 
 const Home = () => {
 
@@ -54,17 +57,17 @@ const Home = () => {
     <main>
       <ContentContainer
         id='contact'
-        background='#bec2c6'
+        background={greyBackground}
       >
         <Content
           sectionName={fullName}
-          childrenSX={{ alignSelf: 'center' }}
+          childrenSX={contentAlign}
           avatar={<Avatar src={avatar} />} >
           <Card value={contacts.phone_number} />
-          <Card value={contacts.vk} icon={<FacebookIcon />} />
-          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
-          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
-          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+          <Card value={contacts.vk} icon={<Facebook />} />
+          <Card value={contacts.git_hub} icon={<GitHub />} />
+          <Card value={contacts.git_flic} icon={<GitHub />} />
+          <Card value={contacts.email} icon={<AlternateEmail />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
