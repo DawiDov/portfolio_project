@@ -1,4 +1,3 @@
-// used packages
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -29,6 +28,7 @@ const Home = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
+  const candidateName = location.pathname
 
   const {
     fullName,
@@ -48,14 +48,22 @@ const Home = () => {
     resumeLink: state.persData.resumeLink,
   }))
 
-  const candidateName = location.pathname
-
   useEffect(() => {
-    dispatch(getData(candidateName))
+    const abortController = new AbortController()
+
+    dispatch(getData(candidateName, abortController.signal))
+    return () => abortController.abort()
   }, [])
+
+  const getNickName = (link) => {
+    const splitArray = link.split('/')
+    return splitArray[splitArray.length - 1]
+  }
 
   return (
     <main>
+
+      {/* CONTACTS --------------------------------------------------------*/}
       <ContentContainer
         id='contact'
         background={greyBackground}
@@ -64,22 +72,43 @@ const Home = () => {
           sectionName={fullName}
           childrenSX={contentAlign}
           avatar={<Avatar src={avatar} />} >
-          <Card value={contacts.phone_number} />
-          <Card value={contacts.vk} icon={<FacebookIcon />} />
-          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
-          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
-          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+          <Card
+            title={contacts.phone_number}
+            link='#' />
+          <Card
+            title={
+              `@${getNickName(contacts.vk)}`
+            }
+            isLink
+            link={contacts.vk}
+            icon={<FacebookIcon />} />
+          <Card
+            title={
+              `@${getNickName(contacts.git_hub)}`
+            }
+            isLink
+            link={contacts.git_hub}
+            icon={<GitHubIcon />} />
+          <Card
+            title={
+              `@${getNickName(contacts.git_flic)}`
+            }
+            isLink
+            link={contacts.git_flic}
+            icon={<GitHubIcon />} />
+          <Card
+            title={contacts.email}
+            link={contacts.email}
+            icon={<AlternateEmailIcon />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-      <ContentContainer
-        id='education'
-      >
-        <Content
-          sectionName='образование'
-        >
+
+      {/* EDUCATION -------------------------------------------------------*/}
+      <ContentContainer id='education'>
+        <Content sectionName='образование'>
           {education.map(edu =>
             <TextBox
               key={edu.edu_type}
@@ -89,13 +118,12 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+
       <Divider sx={{ width: '200px' }} />
-      <ContentContainer
-        id='experience'
-      >
-        <Content
-          sectionName='Опыт работы'
-        >
+
+      {/* EXPERIENCE ------------------------------------------------------*/}
+      <ContentContainer id='experience' >
+        <Content sectionName='Опыт работы'>
           {experience.map(exp =>
             <TextBox
               key={exp.exp_type}
@@ -105,8 +133,11 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+
+      {/* STACK -----------------------------------------------------------*/}
       <StackTitle id='stack' />
       <CloudSkills skills={skills} />
+
     </main>
   )
 }
