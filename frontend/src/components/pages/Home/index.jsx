@@ -1,29 +1,31 @@
-// used packages
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Facebook, GitHub, AlternateEmail } from '@mui/icons-material'
 
-// icons
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import FacebookIcon from '@mui/icons-material/Facebook'
-
-// personal components
-import StackTitle from 'components/common/StackTitle'
-import ContentContainer from 'components/common/ContentContainer'
-import Button from 'components/common/Button'
 import getData from 'service/actions'
-import Content from 'components/common/Content'
-import TextBox from 'components/common/TextBlock'
-import Divider from 'components/common/Divider'
-import Avatar from 'components/common/Avatar'
-import Card from 'components/common/Card'
-import CloudSkills from 'components/common/Cloud'
+import {
+  Avatar,
+  Button,
+  Card,
+  Content,
+  ContentContainer,
+  Divider,
+  StackTitle,
+  TextBlock,
+  CloudSkills
+} from 'components/common'
+
+import {
+  greyBackground,
+  contentAlign
+} from './styles'
 
 const Home = () => {
 
   const location = useLocation()
   const dispatch = useDispatch()
+  const candidateName = location.pathname
 
   const {
     fullName,
@@ -43,40 +45,67 @@ const Home = () => {
     resumeLink: state.persData.resumeLink,
   }))
 
-  const candidateName = location.pathname
-
   useEffect(() => {
-    dispatch(getData(candidateName))
+    const abortController = new AbortController()
+
+    dispatch(getData(candidateName, abortController.signal))
+    return () => abortController.abort()
   }, [])
+
+  const getNickName = (link) => {
+    const splitArray = link.split('/')
+    return splitArray[splitArray.length - 1]
+  }
 
   return (
     <main>
+
       <ContentContainer
         id='contact'
-        background='#bec2c6'
+        background={greyBackground}
       >
         <Content
           sectionName={fullName}
-          childrenSX={{ alignSelf: 'center' }}
+          childrenSX={contentAlign}
           avatar={<Avatar src={avatar} />} >
-          <Card value={contacts.phone_number} />
-          <Card value={contacts.vk} icon={<FacebookIcon />} />
-          <Card value={contacts.git_hub} icon={<GitHubIcon />} />
-          <Card value={contacts.git_flic} icon={<GitHubIcon />} />
-          <Card value={contacts.email} icon={<AlternateEmailIcon />} />
+          <Card
+            title={contacts.phone_number}
+            link='#' />
+          <Card
+            title={
+              `@${getNickName(contacts.vk)}`
+            }
+            isLink
+            link={contacts.vk}
+            icon={<Facebook />} />
+          <Card
+            title={
+              `@${getNickName(contacts.git_hub)}`
+            }
+            isLink
+            link={contacts.git_hub}
+            icon={<GitHub />} />
+          <Card
+            title={
+              `@${getNickName(contacts.git_flic)}`
+            }
+            isLink
+            link={contacts.git_flic}
+            icon={<GitHub />} />
+          <Card
+            title={contacts.email}
+            link={contacts.email}
+            icon={<AlternateEmail />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
         </Content>
       </ContentContainer>
-      <ContentContainer
-        id='education'
-      >
-        <Content
-          sectionName='образование'
-        >
+
+      <ContentContainer id='education'>
+        <Content sectionName='образование'>
           {education.map(edu =>
-            <TextBox
+            <TextBlock
               key={edu.edu_type}
               title={edu.edu_type}
               paragraph={edu.edu_description}
@@ -84,15 +113,13 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+
       <Divider sx={{ width: '200px' }} />
-      <ContentContainer
-        id='experience'
-      >
-        <Content
-          sectionName='Опыт работы'
-        >
+
+      <ContentContainer id='experience' >
+        <Content sectionName='Опыт работы'>
           {experience.map(exp =>
-            <TextBox
+            <TextBlock
               key={exp.exp_type}
               title={exp.exp_type}
               paragraph={exp.exp_description}
@@ -100,8 +127,10 @@ const Home = () => {
           )}
         </Content>
       </ContentContainer>
+
       <StackTitle id='stack' />
       <CloudSkills skills={skills} />
+
     </main>
   )
 }
