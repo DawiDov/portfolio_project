@@ -79,31 +79,31 @@ const Home = () => {
           <Card
             icon={<PhoneIcon />}
             title={contacts.phone_number}
-            link='#' />
+            value='#' />
           <Card
             title={
-              `@${getNickName(contacts.vk)}`
+              `VK@${getNickName(contacts.vk)}`
             }
             isLink
-            link={contacts.vk}
+            value={contacts.vk}
             icon={< VkIcon />} />
           <Card
             title={
-              `@${getNickName(contacts.git_hub)}`
+              `GitHub@${getNickName(contacts.git_hub)}`
             }
             isLink
-            link={contacts.git_hub}
+            value={contacts.git_hub}
             icon={<GitHubIcon />} />
           <Card
             title={
-              `@${getNickName(contacts.git_flic)}`
+              `GitFlic@${getNickName(contacts.git_flic)}`
             }
             isLink
-            link={contacts.git_flic}
+            value={contacts.git_flic}
             icon={<GitHubIcon />} />
           <Card
             title={contacts.email}
-            link={contacts.email}
+            value={contacts.email}
             icon={< MailIcon />} />
           <Button
             onClick={() => window.open(resumeLink)}
