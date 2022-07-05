@@ -10,6 +10,9 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
 
+  const vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+
   const {
     projectLink,
   } = useSelector(state => ({
