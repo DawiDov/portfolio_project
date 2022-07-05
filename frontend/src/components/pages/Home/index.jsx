@@ -2,10 +2,6 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import FacebookIcon from '@mui/icons-material/Facebook'
-
 import getData from 'service/actions'
 import {
   Avatar,
@@ -21,8 +17,16 @@ import {
 
 import {
   greyBackground,
-  contentAlign
+  contentAlign,
+  dividerWidth,
 } from './styles'
+
+import {
+  VkIcon,
+  GitHubIcon,
+  MailIcon,
+  PhoneIcon,
+} from './icons'
 
 const Home = () => {
 
@@ -73,6 +77,7 @@ const Home = () => {
           childrenSX={contentAlign}
           avatar={<Avatar src={avatar} />} >
           <Card
+            icon={<PhoneIcon />}
             title={contacts.phone_number}
             link='#' />
           <Card
@@ -81,7 +86,7 @@ const Home = () => {
             }
             isLink
             link={contacts.vk}
-            icon={<FacebookIcon />} />
+            icon={< VkIcon />} />
           <Card
             title={
               `@${getNickName(contacts.git_hub)}`
@@ -99,7 +104,7 @@ const Home = () => {
           <Card
             title={contacts.email}
             link={contacts.email}
-            icon={<AlternateEmailIcon />} />
+            icon={< MailIcon />} />
           <Button
             onClick={() => window.open(resumeLink)}
             title='скачать резюме' />
@@ -119,7 +124,7 @@ const Home = () => {
         </Content>
       </ContentContainer>
 
-      <Divider sx={{ width: '200px' }} />
+      <Divider sx={dividerWidth} />
 
       {/* EXPERIENCE ------------------------------------------------------*/}
       <ContentContainer id='experience' >
