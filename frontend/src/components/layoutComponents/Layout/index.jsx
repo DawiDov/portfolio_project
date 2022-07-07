@@ -26,7 +26,7 @@ const Layout = () => {
   return (
     <>
       <header className={style.header}>
-        <ParticlesBg type="lines" bg />
+        <ParticlesBg type="circle" bg />
         <Menu />
         <Title />
         <GitButton projectLink={projectLink} />
