@@ -14,6 +14,7 @@ class CandidateInfo(models.Model):
     contacts = models.OneToOneField("Contacts", on_delete=models.PROTECT)
     education = models.ManyToManyField("Education")
     experience = models.ManyToManyField("Experience")
+    avatar = models.TextField(null=True)
     resume_link = models.TextField(null=True)
     project_link = models.TextField(null=True)
 
