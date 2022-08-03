@@ -1,14 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import ParticlesBg from 'particles-bg'
+import { Outlet } from 'react-router-dom'
+
+import useScreenDimensions from 'hooks/useScreenDimensions'
 
 import Title from 'components/layoutComponents/Title'
 import Menu from 'components/layoutComponents/Menu'
 import GitButton from 'components/layoutComponents/GitButton'
+
 import style from 'components/layoutComponents/Layout/index.module.sass'
-import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
+
+  const { height } = useScreenDimensions()
+
+  document.documentElement.style.setProperty('--vh', `${height * 0.01}px`)
 
   const {
     projectLink,
@@ -16,10 +23,10 @@ const Layout = () => {
     projectLink: state.persData.projectLink
   }))
 
-  return ( 
+  return (
     <>
       <header className={style.header}>
-        <ParticlesBg type="lines" bg />
+        <ParticlesBg type="circle" bg />
         <Menu />
         <Title />
         <GitButton projectLink={projectLink} />
