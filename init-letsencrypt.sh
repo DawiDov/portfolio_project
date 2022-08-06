@@ -8,7 +8,7 @@ fi
 domains=(pet-project.site www.pet-project.site)
 rsa_key_size=4096
 data_path="./docker/nginx/certbot"
-email="housegum@gmail.com" # Adding a valid address is strongly recommended
+email="" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
 if [ -d "$data_path" ]; then
@@ -32,7 +32,7 @@ path="/etc/letsencrypt/live/$domains"
 mkdir -p "$data_path/conf/live/$domains"
 docker-compose -f docker-compose.prod.yml run --rm --entrypoint "\
   openssl req -x509 -nodes -newkey rsa:1024 -days 1\
-    -keyout '$path/privkey.pem'
+    -keyout '$path/privkey.pem' \
     -out '$path/fullchain.pem' \
     -subj '/CN=localhost'" certbot
 echo
