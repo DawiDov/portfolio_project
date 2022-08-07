@@ -18,7 +18,7 @@ const TextBox = ({ sx, title, paragraph }) => (
     </h2>
     <article className={style.paragraph}
     >
-      {paragraph}
+      <div dangerouslySetInnerHTML={{ __html: paragraph }} />
     </article>
   </section>
 )
