@@ -8,12 +8,13 @@ import {
   Button,
   Card,
   Content,
-  ContentContainer,
   Divider,
   StackTitle,
   TextBox,
   CloudSkills
 } from 'components/common'
+
+import ContentContainer from 'style/ContentContainer'
 
 import {
   greyBackground,
@@ -69,9 +70,11 @@ const Home = () => {
 
       {/* CONTACTS --------------------------------------------------------*/}
       <ContentContainer
-        id='contact'
-        background={greyBackground}
+        sx={{ height: '100vh' }}
       >
+        title
+      </ContentContainer>
+      <ContentContainer>
         <Content
           sectionName={fullName}
           childrenSX={contentAlign}
@@ -112,7 +115,7 @@ const Home = () => {
       </ContentContainer>
 
       {/* EDUCATION -------------------------------------------------------*/}
-      <ContentContainer id='education'>
+      <ContentContainer isWhite>
         <Content sectionName='образование'>
           {education.map(edu =>
             <TextBox

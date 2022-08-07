@@ -1,23 +1,21 @@
+import { Container } from '@mui/material'
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 
-import style from './index.module.sass'
+import styled from '@emotion/styled'
 
-const ContentContainer = ({children, background, className, sx, id }) => (
+const StyledContainer = styled(Container)(({ theme, isWhite }) => ({
+  width: '100vw',
+  minHeight: '400px',
+  padding: '30px',
+  backgroundColor: isWhite ? 'white' : theme.palette.secondary.light,
+}))
 
-  <section
-    id={id}
-    className={
-      classNames(style.container, style.indent, className)
-    }
-    style={{
-      ...sx,
-      backgroundColor: background,
-    }}
-  >
+const ContentContainer = ({ children, isWhite }) => (
+
+  <StyledContainer isWhite>
     {children}
-  </section>
+  </StyledContainer >
 )
 
 ContentContainer.propTypes = {
@@ -25,17 +23,11 @@ ContentContainer.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  sx: PropTypes.objectOf(PropTypes.string),
-  className: PropTypes.string,
-  background: PropTypes.string,
-  id: PropTypes.string,
+  isWhite: PropTypes.bool,
 }
 
 ContentContainer.defaultProps = {
-  sx: null,
-  background: 'white',
-  className: null,
-  id: null,
+  isWhite: null,
 }
 
 export default ContentContainer
