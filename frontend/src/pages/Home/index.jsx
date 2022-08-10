@@ -11,13 +11,13 @@ import {
   Divider,
   StackTitle,
   TextBox,
-  CloudSkills
+  CloudSkills,
+  ContentContainer,
 } from 'components/common'
 
-import ContentContainer from 'style/ContentContainer'
+import Title from 'components/common/Title'
 
 import {
-  greyBackground,
   contentAlign,
   dividerWidth,
 } from './styles'
@@ -67,13 +67,8 @@ const Home = () => {
 
   return (
     <main>
-
+      <Title />
       {/* CONTACTS --------------------------------------------------------*/}
-      <ContentContainer
-        sx={{ height: '100vh' }}
-      >
-        title
-      </ContentContainer>
       <ContentContainer>
         <Content
           sectionName={fullName}
