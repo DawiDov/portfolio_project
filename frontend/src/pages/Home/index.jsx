@@ -52,6 +52,7 @@ const Home = () => {
     avatar: state.persData.avatar,
     resumeLink: state.persData.resumeLink,
   }))
+  console.log('console log', fullName)
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -76,7 +77,7 @@ const Home = () => {
           avatar={<Avatar src={avatar} />} >
           <Card
             icon={<PhoneIcon />}
-            title={contacts.phone_number}
+            title={contacts.phoneNumber}
             value='#' />
           <Card
             title={
@@ -87,17 +88,17 @@ const Home = () => {
             icon={< VkIcon />} />
           <Card
             title={
-              `GitHub@${getNickName(contacts.git_hub)}`
+              `GitHub@${getNickName(contacts.gitHub)}`
             }
             isLink
-            value={contacts.git_hub}
+            value={contacts.gitHub}
             icon={<GitHubIcon />} />
           <Card
             title={
-              `GitFlic@${getNickName(contacts.git_flic)}`
+              `GitFlic@${getNickName(contacts.gitFlic)}`
             }
             isLink
-            value={contacts.git_flic}
+            value={contacts.gitFlic}
             icon={<GitHubIcon />} />
           <Card
             title={contacts.email}

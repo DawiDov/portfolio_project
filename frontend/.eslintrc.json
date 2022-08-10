@@ -7,6 +7,7 @@
         "airbnb",
         "prettier"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -57,7 +58,10 @@
             {
                 "extensions": [
                     ".js",
-                    ".jsx"
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+
                 ]
              }
         ]

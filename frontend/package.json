@@ -45,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "npx eslint --ext .jsx --ext .js src/",
-    "lint:fix": "npx eslint --ext .jsx --ext .js --fix src/"
+    "lint:fix": "npx eslint --ext .jsx --ext .js --ext .ts --ext .tsx --fix src/"
   },
   "eslintConfig": {
     "extends": [

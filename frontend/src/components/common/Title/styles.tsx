@@ -44,3 +44,4 @@ export const Article = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'flex-end',
 }))
+
