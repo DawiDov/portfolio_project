@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
-import { TitleContainer, Name, LastName, Photo, Article } from './styles'
 import { PhoneIcon, VkIcon } from 'pages/Home/icons'
+import { TitleContainer, Name, LastName, Photo, Article } from './styles'
 import Content from '../Content'
 import Card from '../Card'
 
