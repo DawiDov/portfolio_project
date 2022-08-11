@@ -2,16 +2,14 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunkMiddleWare from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import persDataReducer from './persDataReducer'
+import { configureStore } from '@reduxjs/toolkit'
 
-const reducers = combineReducers({
-  persData: persDataReducer,
+const store = configureStore({
+  reducer: { main: persDataReducer }
 })
-
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleWare)))
 // Infer the `RootState` and `AppDispatch` types from the store itself
-type Store = typeof store
-//export type RootState = ReturnType<Store>
+export type RootState = ReturnType<typeof store.getState>
 // // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-//export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch
 
 export default store
