@@ -1,7 +1,5 @@
-import {
-  SET_CANDIDATE_DATA,
-} from 'service/constants'
 import { AnyAction } from 'redux'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   fullName: '',
@@ -31,44 +29,28 @@ const initialState = {
 
 export type State = typeof initialState
 
-const defaultAction: AnyAction = {
-  type: '',
-  payload: '',
-}
-
-const persDataReducer = (state: State = initialState, action: AnyAction = defaultAction) => {
-  switch (action.type) {
-  case SET_CANDIDATE_DATA:
-    return {
-      ...state,
-      fullName: action.payload.full_name,
-      contacts: {
-        email: action.contacts.payload.email,
-        gitFlic: action.payload.contacts.git_flic,
-        gitHub: action.payload.contacts.git_hub,
-        phoneNumber: action.payload.contacts.phone_number,
-        vk: action.payload.contacts.vk,
-      },
-      education: {
-        eduType: action.payload.education.edu_type,
-        eduDescription: action.payload.education.edu_description,
-      },
-      experience: {
-        expType: action.payload.experience.exp_type,
-        expDescription: action.payload.experience.exp_description,
-      },
-      skills: {
-        skillName: action.payload.skills.skill_name,
-      },
-      avatar: action.payload.avatar,
-      resumeLink: action.payload.resume_link,
-      projectLink: action.payload.project_link,
-    }
-  default:
-    return {
-      ...state
+const persData = createSlice({
+  name: 'personal-data',
+  initialState,
+  reducers: {
+    setCandidateData: (state, action: AnyAction) => {
+      state.fullName = action.payload.full_name
+      state.contacts.email = action.contacts.payload.email
+      state.contacts.gitFlic = action.payload.contacts.git_flic
+      state.contacts.gitHub = action.payload.contacts.git_hub
+      state.contacts.phoneNumber = action.payload.contacts.phone_number
+      state.contacts.vk = action.payload.contacts.vk
+      state.education = [...action.payload.education.edu_type]
+      state.experience = [...action.payload.experience.exp_type]
+      state.experience = [...action.payload.experience.exp_description]
+      state.skills = [...action.payload.skills.skill_name]
+      state.avatar = action.payload.avatar
+      state.resumeLink = action.payload.resume_link
+      state.projectLink = action.payload.project_link
     }
   }
-}
+})
 
-export default persDataReducer
+export const { setCandidateData } = persData.actions
+
+export default persData.reducer

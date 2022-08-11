@@ -45,6 +45,8 @@
             "semi": ["error", "never"],
             "import/no-unresolved": 0,
             "no-extra-semi": 2,
+            "react/require-default-props": "off",
+            "react/prop-types": "off",
             "react/react-in-jsx-scope": 0,
             "import/extensions": [
               "warn",

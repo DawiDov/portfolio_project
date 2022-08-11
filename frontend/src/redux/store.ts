@@ -8,5 +8,10 @@ const reducers = combineReducers({
 })
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleWare)))
+// Infer the `RootState` and `AppDispatch` types from the store itself
+type Store = typeof store
+//export type RootState = ReturnType<Store>
+// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+//export type AppDispatch = typeof store.dispatch
 
 export default store
